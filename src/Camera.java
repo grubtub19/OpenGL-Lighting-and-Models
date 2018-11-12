@@ -4,12 +4,12 @@ import graphicslib3D.Vector3D;
 import java.util.ArrayList;
 
 public class Camera {
-    Point3D position = new Point3D(0,0,0);
+    public Point3D position = new Point3D(0,0,0);
     Vector3D forward = new Vector3D(0,0,-1);
-    float pitch = 90, yaw = 0;
+    float yaw = 90, pitch = 0;
     boolean needCalc = true;
-    float moveSensitivity = 0.00000000025f;
-    float rotateSensitivity = 0.000000003f;
+    float moveSensitivity = 0.01f;
+    float rotateSensitivity = 0.003f;
     float speedUpVal = 4;
 
     public Camera(float x, float y, float z) {
@@ -33,16 +33,16 @@ public class Camera {
         return rotMatrix;
     }
 
-    public double getRotX() {
-        return Math.cos(Math.toRadians(yaw)) * Math.cos(Math.toRadians(pitch));
+    public float getRotX() {
+        return (float) (Math.cos(Math.toRadians(pitch)) * Math.cos(Math.toRadians(yaw)));
     }
 
-    public double getRotY() {
-        return Math.sin(Math.toRadians(yaw));
+    public float getRotY() {
+        return (float) (Math.sin(Math.toRadians(pitch)));
     }
 
-    public double getRotZ() {
-        return Math.cos(Math.toRadians(yaw)) * -Math.sin(Math.toRadians(pitch));
+    public float getRotZ() {
+        return (float) (Math.cos(Math.toRadians(pitch)) * -Math.sin(Math.toRadians(yaw)));
     }
 
     public void move(Vector3D vector) {
@@ -61,7 +61,7 @@ public class Camera {
         }
     }
 
-    public void moveForward(double time) {
+    public void moveForward(float time) {
         updateForward();
         Vector3D move;
         move = forward.mult(moveSensitivity * time * speedUpVal);
@@ -69,7 +69,7 @@ public class Camera {
         move(move);
     }
 
-    public void moveBackward(double time) {
+    public void moveBackward(float time) {
         updateForward();
         Vector3D move;
         move = forward.mult(-moveSensitivity * time * speedUpVal);
@@ -77,89 +77,77 @@ public class Camera {
         move(move);
     }
 
-    public void strafeLeft(double time) {
+    public void strafeLeft(float time) {
         updateForward();
         Vector3D left = forward.cross(new Vector3D(0,-1,0)).mult(moveSensitivity * time * speedUpVal);
         move(left);
     }
 
-    public void strafeRight(double time) {
+    public void strafeRight(float time) {
         updateForward();
         Vector3D right = forward.cross(new Vector3D(0,1,0)).mult(moveSensitivity * time * speedUpVal);
         move(right);
     }
 
-    public void strafeUp(double time) {
+    public void strafeUp(float time) {
         updateForward();
         Vector3D up = new Vector3D(0,1,0).mult(moveSensitivity * time * speedUpVal);
         move(up);
     }
 
-    public void strafeDown(double time) {
+    public void strafeDown(float time) {
         updateForward();
         Vector3D up = new Vector3D(0,-1,0).mult(moveSensitivity * time * speedUpVal);
         move(up);
     }
 
-    public void pitchRight(double time) {
-        pitch -= rotateSensitivity *time;
+    public void yaw(float time, float amount) {
+        yaw -= rotateSensitivity * time * amount;
         needCalc = true;
     }
 
-    public void pitchLeft(double time) {
-        pitch += rotateSensitivity *time;
+    public void yawLeft(float time) {
+        yaw += rotateSensitivity * time;
         needCalc = true;
     }
 
-    public void yawDown(double time) {
-        yaw -= rotateSensitivity *time;
+    public void pitchDown(float time) {
+        pitch -= rotateSensitivity * time;
         needCalc = true;
     }
 
-    public void yawUp(double time) {
-        yaw += rotateSensitivity *time;
+    public void pitch(float time, float amount) {
+        pitch += rotateSensitivity * time * amount;
         needCalc = true;
     }
 
-    public void moveCamera(ArrayList<MyListener.Key> keyList, double time) {
-        if(keyList.contains(MyListener.Key.shift)) {
+    public void moveCamera(MyListener listener, float time) {
+        if(listener.keyboard.shift.isDown()) {
             speedUpVal = 4;
         } else {
             speedUpVal = 1;
         }
-        for(MyListener.Key key : keyList) {
-           // System.out.println(key.name());
-            switch(key) {
-                case w:
-                    moveForward(time);
-                    break;
-                case a:
-                    strafeLeft(time);
-                    break;
-                case s:
-                    moveBackward(time);
-                    break;
-                case d:
-                    strafeRight(time);
-                    break;
-                case q:
-                    strafeUp(time);
-                    break;
-                case e:
-                    strafeDown(time);
-                    break;
-                case left:
-                    pitchLeft(time);
-                    break;
-                case up:
-                    yawUp(time);
-                    break;
-                case right:
-                    pitchRight(time);
-                    break;
-                case down:
-                    yawDown(time);
-            }
+        if(listener.keyboard.w.isDown()) {
+            moveForward(time);
         }
+        if(listener.keyboard.a.isDown()) {
+            strafeLeft(time);
+        }
+        if(listener.keyboard.s.isDown()) {
+            moveBackward(time);
+        }
+        if(listener.keyboard.d.isDown()) {
+            strafeRight(time);
+        }
+        if(listener.keyboard.q.isDown()) {
+            strafeUp(time);
+        }
+        if(listener.keyboard.e.isDown()) {
+            strafeDown(time);
+        }
+
+        yaw(time, listener.mouse.x);
+
+        pitch(time, -(listener.mouse.y));
     }
 }

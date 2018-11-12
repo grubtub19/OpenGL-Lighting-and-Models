@@ -1,107 +1,130 @@
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 
 public class MyListener implements KeyListener {
 
-    public enum Key { w, a, s, d, q, e, down, left, up, right, shift, space };
-    public ArrayList<Key> keyList = new ArrayList<Key>();
-    private Camera camera;
+    public Mouse mouse;
+    public Keyboard keyboard;
+    private JFrame window;
 
-    public MyListener() {
+    public MyListener(JFrame frame) throws AWTException {
+        this.window = frame;
+        keyboard = new Keyboard();
+        mouse = new Mouse();
+    }
 
+    public void update() {
+        keyboard.update();
+        mouse.update(window);
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
-    }
-
-    private void checkThenAdd(Key key) {
-        if (!keyList.contains(key)) {
-            keyList.add(key);
-        }
+        //System.out.println("Typed: " + e.getKeyChar());
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        //System.out.println(e.getKeyCode());
+        //System.out.println("Pressed: " + e.getKeyCode());
         switch(e.getKeyCode()) {
             case 87:
-                checkThenAdd(Key.w);
+                keyboard.w.nextIsDown = true;
+                //System.out.println("w.isDown(): " + keyboard.w.isDown());
                 break;
             case 65:
-                checkThenAdd(Key.a);
+                keyboard.a.nextIsDown = true;
                 break;
             case 83:
-                checkThenAdd(Key.s);
+                keyboard.s.nextIsDown = true;
                 break;
             case 68:
-                checkThenAdd(Key.d);
+                keyboard.d.nextIsDown = true;
                 break;
             case 81:
-                checkThenAdd(Key.q);
+                keyboard.q.nextIsDown = true;
                 break;
             case 69:
-                checkThenAdd(Key.e);
+                keyboard.e.nextIsDown = true;
                 break;
             case 37:
-                checkThenAdd(Key.left);
+                keyboard.left.nextIsDown = true;
                 break;
             case 38:
-                checkThenAdd(Key.up);
+                keyboard.up.nextIsDown = true;
                 break;
             case 39:
-                checkThenAdd(Key.right);
+                keyboard.right.nextIsDown = true;
                 break;
             case 40:
-                checkThenAdd(Key.down);
+                keyboard.down.nextIsDown = true;
                 break;
             case 16:
-                checkThenAdd(Key.shift);
+                keyboard.shift.nextIsDown = true;
                 break;
             case 32:
-                checkThenAdd(Key.space);
+                keyboard.space.nextIsDown = true;
+                break;
+            case 27:
+                keyboard.esc.nextIsDown = true;
+                break;
+            case 44:
+                keyboard.lArrow.nextIsDown = true;
+                break;
+            case 46:
+                keyboard.rArrow.nextIsDown = true;
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+        //System.out.println("Released: " + e.getKeyChar());
         switch(e.getKeyCode()) {
             case 87:
-                keyList.remove(Key.w);
+                keyboard.w.nextIsDown = false;
                 break;
             case 65:
-                keyList.remove(Key.a);
+                keyboard.a.nextIsDown = false;
                 break;
             case 83:
-                keyList.remove(Key.s);
+                keyboard.s.nextIsDown = false;
                 break;
             case 68:
-                keyList.remove(Key.d);
+                keyboard.d.nextIsDown = false;
                 break;
             case 81:
-                keyList.remove(Key.q);
+                keyboard.q.nextIsDown = false;
                 break;
             case 69:
-                keyList.remove(Key.e);
+                keyboard.e.nextIsDown = false;
                 break;
             case 37:
-                keyList.remove(Key.left);
+                keyboard.left.nextIsDown = false;
                 break;
             case 38:
-                keyList.remove(Key.up);
+                keyboard.up.nextIsDown = false;
                 break;
             case 39:
-                keyList.remove(Key.right);
+                keyboard.right.nextIsDown = false;
                 break;
             case 40:
-                keyList.remove(Key.down);
+                keyboard.down.nextIsDown = false;
                 break;
             case 16:
-                keyList.remove(Key.shift);
+                keyboard.shift.nextIsDown = false;
                 break;
             case 32:
-                keyList.remove(Key.space);
+                keyboard.space.nextIsDown = false;
+                break;
+            case 27:
+                keyboard.esc.nextIsDown = false;
+                break;
+            case 44:
+                keyboard.lArrow.nextIsDown = false;
+                break;
+            case 46:
+                keyboard.rArrow.nextIsDown = false;
         }
     }
 }

@@ -2,37 +2,60 @@ import com.jogamp.common.nio.Buffers;
 import com.jogamp.opengl.GL4;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
+import com.sun.scenario.effect.light.PointLight;
+import graphicslib3D.Material;
 import graphicslib3D.Matrix3D;
-import graphicslib3D.MatrixStack;
 import graphicslib3D.Point3D;
 import graphicslib3D.Vector3D;
+import graphicslib3D.light.AmbientLight;
+import graphicslib3D.light.Light;
+import graphicslib3D.light.PositionalLight;
+
 import java.io.File;
 import java.nio.FloatBuffer;
+import java.util.ArrayList;
+
 import static com.jogamp.opengl.GL.*;
 import static com.jogamp.opengl.GL.GL_TRIANGLES;
 
 public class Shape {
-    protected Point3D position = new Point3D(0,0,0);
-    protected float rotX = 0, rotY = 0, rotZ = 0;
-    protected float[] posCoords, texCoords;
-    protected int[] vbo = new int[2];
-    protected int texture;
-    Matrix3D mMat = new Matrix3D();
-    private float orbitXSpeed = 0;
-    private float orbitYSpeed = 0;
-    private float orbitZSpeed = 0;
-    public float orbitDistance = 1;
+    protected Point3D position;
+    protected float rotX, rotY, rotZ;
+    protected vec3 scale;
+    protected ArrayList<int[]> vbos;
+    protected ArrayList<Integer> textures;
+    protected ArrayList<Integer> numVerts;
+    protected ArrayList<Material> materials;
+    protected Matrix3D mMat;
+    public static Material defaultMaterial = new Material( new float[] { 1.0f, 1.0f, 1.0f, 1.0f },
+            new float[] { 1.0f, 1.0f, 1.0f, 1.0f },
+            new float[] { 0.5f, 0.5f, 0.5f, 1.0f },
+            new float[] { 1.0f, 1.0f, 1.0f, 1.0f },
+           30.0f);
+    private int material_amb_loc;
+    private int material_diff_loc;
+    private int material_spec_loc;
+    private int material_shiny_loc;
 
     public Shape() {
-        posCoords = new float[0];
-        texCoords = new float[0];
+        position = new Point3D(0,0,0);
+        rotX = 0;
+        rotY = 0;
+        rotZ = 0;
+        scale = new vec3(1, 1, 1);
+        vbos = new ArrayList<>();
+        textures = new ArrayList<>();
+        numVerts = new ArrayList<>();
+        mMat = new Matrix3D();
+        materials = new ArrayList<>();
+
     }
 
-    public float getX() { return (float)position.getX(); }
+    public float getX() { return (float) position.getX(); }
 
-    public float getY() { return (float)position.getY(); }
+    public float getY() { return (float) position.getY(); }
 
-    public float getZ() { return (float)position.getZ(); }
+    public float getZ() { return (float) position.getZ(); }
 
     public void setX(float x) { position.setX(x); }
 
@@ -46,6 +69,18 @@ public class Shape {
         position.setX(position.getX() + vector.getX());
         position.setY(position.getY() + vector.getY());
         position.setZ(position.getZ() + vector.getZ());
+    }
+
+    public void setPosition(Point3D point) {
+        position.setX(point.getX());
+        position.setY(point.getY());
+        position.setZ(point.getZ());
+    }
+
+    public void scale(float x, float y, float z) {
+        scale.x = x;
+        scale.y = y;
+        scale.z = z;
     }
 
     public float getDegrees() {
@@ -82,136 +117,204 @@ public class Shape {
         }
     }
 
-    public void setOrbit(float distance, float speed, String axis) {
-        orbitDistance = distance;
-        if (axis == "x") {
-            orbitXSpeed = speed;
-            orbitYSpeed = 0;
-            orbitZSpeed = 0;
-        }
-        else if (axis == "y") {
-            orbitYSpeed = speed;
-            orbitXSpeed = 0;
-            orbitZSpeed = 0;
-        }
-        else if (axis == "z") {
-            orbitZSpeed = speed;
-            orbitXSpeed = 0;
-            orbitYSpeed = 0;
-        }
-    }
-
-    public float getOrbitXComp(double amt) {
-        //System.out.println("orbitSpeedX: " + orbitXSpeed + ", orbitSpeedY: " + orbitYSpeed + ", orbitSpeedZ: " + orbitZSpeed);
-        //System.out.println("orbitX: " + (float)(-Math.sin(amt*orbitZSpeed) + Math.cos(amt*orbitYSpeed)));
-        float rtn = 0;
-        if(orbitYSpeed != 0) {
-            rtn += Math.cos(amt*orbitYSpeed);
-        }
-        if(orbitZSpeed != 0) {
-            rtn -= Math.sin(amt*orbitZSpeed);
-        }
-        return rtn;
-    }
-
-    public float getOrbitYComp(double amt) {
-        //System.out.println("orbitY: " + (float)(-Math.sin(amt*orbitXSpeed) + Math.cos(amt*orbitZSpeed)));
-        float rtn = 0;
-        if(orbitXSpeed != 0) {
-            rtn -= Math.sin(amt*orbitXSpeed);
-        }
-        if(orbitZSpeed != 0) {
-            rtn += Math.cos(amt*orbitZSpeed);
-        }
-        return rtn;
-    }
-
-    public float getOrbitZComp(double amt) {
-        //System.out.println("orbitZ: " + (float)(-Math.sin(amt*orbitYSpeed) + Math.cos(amt*orbitXSpeed)));
-        float rtn = 0;
-        if(orbitXSpeed != 0) {
-            rtn += Math.cos(amt*orbitXSpeed);
-        }
-        if(orbitYSpeed != 0) {
-            rtn -= Math.sin(amt*orbitYSpeed);
-        }
-        return rtn;
-    }
-
-    public void orbitTopOfStack(MatrixStack mStack, double time) {
-        mStack.pushMatrix();
-        mStack.translate(getOrbitXComp(time) * orbitDistance, getOrbitYComp(time) * orbitDistance, getOrbitZComp(time) * orbitDistance);
-        mStack.pushMatrix();
-        //System.out.println((System.currentTimeMillis()/10.0)*getDegrees());
-        if (getDegrees() > 0) {
-            mStack.rotate((System.currentTimeMillis() / 10.0) * getDegrees(), getRotCompX(), getRotCompY(), getRotCompZ());
-        }
-        mMat = mStack.peek();
-        mStack.popMatrix();
-    }
-
     public void setRotX(float x) { rotX = x; }
 
     public void setRotY(float y) { rotY = y; }
 
     public void setRotZ(float z) { rotZ = z; }
 
-    public void setup(GL4 gl, String texture) {
-        this.texture = loadTexture(texture).getTextureObject();
+    public void setup(GL4 gl, float[] positionCoords, float[] textureCoords, float[] normalVectors, String texture, Material material) {
+        vbos.add(new int[3]);
+        int vboNum = vbos.size() - 1;
+        gl.glGenBuffers(vbos.get(vboNum).length, vbos.get(vboNum), 0);
 
-        gl.glGenBuffers(vbo.length, vbo, 0);
-
-        gl.glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
-        FloatBuffer pyrBuf = Buffers.newDirectFloatBuffer(posCoords);
+        gl.glBindBuffer(GL_ARRAY_BUFFER, vbos.get(vboNum)[0]);
+        FloatBuffer pyrBuf = Buffers.newDirectFloatBuffer(positionCoords);
         gl.glBufferData(GL_ARRAY_BUFFER, pyrBuf.limit()*4, pyrBuf, GL_STATIC_DRAW);
 
-        gl.glBindBuffer(GL_ARRAY_BUFFER, vbo[1]);
-        FloatBuffer texBuf = Buffers.newDirectFloatBuffer(texCoords);
-        gl.glBufferData(GL_ARRAY_BUFFER, texBuf.limit()*4, texBuf, GL_STATIC_DRAW);
+        if(textureCoords != null && textureCoords.length != 0) {
+            gl.glBindBuffer(GL_ARRAY_BUFFER, vbos.get(vboNum)[1]);
+            FloatBuffer texBuf = Buffers.newDirectFloatBuffer(textureCoords);
+            gl.glBufferData(GL_ARRAY_BUFFER, texBuf.limit() * 4, texBuf, GL_STATIC_DRAW);
+        }
+
+        if(normalVectors != null && normalVectors.length != 0) {
+            gl.glBindBuffer(GL_ARRAY_BUFFER, vbos.get(vboNum)[2]);
+            FloatBuffer norBuf = Buffers.newDirectFloatBuffer(normalVectors);
+            gl.glBufferData(GL_ARRAY_BUFFER, norBuf.limit() * 4, norBuf, GL_STATIC_DRAW);
+        }
+
+        numVerts.add(positionCoords.length / 3);
+        textures.add(loadTexture(texture).getTextureObject());
+        System.out.println(textures.toString());
+        System.out.println("texture int value: " + textures.get(textures.size() - 1) + ", vboNum: " + vboNum);
+        System.out.println("vbos.get(" + vboNum + "): " + vbos.get(vboNum)[0] + " " + vbos.get(vboNum)[1] + " " + vbos.get(vboNum)[2]);
+
+        materials.add(material);
     }
 
-    public Texture loadTexture(String textureFileName)
-    {	Texture tex = null;
-        try { tex = TextureIO.newTexture(new File(textureFileName), false); }
-        catch (Exception e) { e.printStackTrace(); }
+    public Texture loadTexture(String textureFileName) {
+        Texture tex = null;
+        try {
+            tex = TextureIO.newTexture(new File(textureFileName), false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return tex;
     }
 
-    private void update() {
+    protected void update() {
         mMat.translate(position.getX(), position.getY(), position.getZ());
-        //mMat.rotate(rotX, rotY, rotZ);
+        mMat.rotate(rotX, rotY, rotZ);
+        mMat.scale(scale.x, scale.y, scale.z);
     }
 
-    public void display(GL4 gl, int rendering_program, Matrix3D pMat, Matrix3D vMat) {
-        update();
+    protected void glSettings(GL4 gl) {
+        //gl.glClear(GL_DEPTH_BUFFER_BIT);
+        gl.glEnable(GL_DEPTH_TEST);
+        gl.glDepthFunc(GL_LEQUAL);
+        gl.glEnable(GL_CULL_FACE);
+        gl.glFrontFace(GL_CCW);
+    }
 
+    private void addLight(GL4 gl, int rendering_program, Matrix3D vMat, AmbientLight ambient, PositionalLight light) {
+        int globalAmbient_loc = gl.glGetUniformLocation(rendering_program, "globalAmbient");
+        int light_amb_loc = gl.glGetUniformLocation(rendering_program, "light.ambient");
+        int light_diff_loc = gl.glGetUniformLocation(rendering_program, "light.diffuse");
+        int light_spec_loc = gl.glGetUniformLocation(rendering_program, "light.specular");
+        int light_pos_loc = gl.glGetUniformLocation(rendering_program, "light.position");
+
+        Point3D lightPv = light.getPosition().mult(vMat);
+        float[] viewLight = new float[] { (float) lightPv.getX(), (float) lightPv.getY(), (float) lightPv.getZ() };
+
+        gl.glUniform4fv(globalAmbient_loc, 1, ambient.getValues(), 0);
+        gl.glUniform4fv(light_amb_loc, 1, light.getAmbient(), 0);
+        gl.glUniform4fv(light_diff_loc, 1, light.getDiffuse(), 0);
+        gl.glUniform4fv(light_spec_loc, 1, light.getSpecular(), 0);
+        gl.glUniform3fv(light_pos_loc, 1, viewLight, 0);
+    }
+
+    private void addMatricies(GL4 gl, int rendering_program, Matrix3D pMat, Matrix3D vMat) {
         int m_loc = gl.glGetUniformLocation(rendering_program, "m_matrix");
         int v_loc = gl.glGetUniformLocation(rendering_program, "v_matrix");
         int proj_loc = gl.glGetUniformLocation(rendering_program, "proj_matrix");
+        int norm_loc =  gl.glGetUniformLocation(rendering_program, "norm_matrix");
+
+        Matrix3D mv_matrix = new Matrix3D();
+        mv_matrix.concatenate(vMat);
+        mv_matrix.concatenate(mMat);
 
         gl.glUniformMatrix4fv(m_loc, 1, false, mMat.getFloatValues(), 0);
         gl.glUniformMatrix4fv(v_loc, 1, false, vMat.getFloatValues(), 0);
         gl.glUniformMatrix4fv(proj_loc, 1, false, pMat.getFloatValues(), 0);
+        gl.glUniformMatrix4fv(norm_loc, 1, false, mv_matrix.inverse().transpose().getFloatValues(), 0);
+    }
 
-        gl.glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
-        gl.glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
-        gl.glEnableVertexAttribArray(0);
+    private void addMatricies(GL4 gl, int rendering_program) {
+        int model_loc = gl.glGetUniformLocation(rendering_program, "model");
 
-        gl.glBindBuffer(GL_ARRAY_BUFFER, vbo[1]);
-        gl.glVertexAttribPointer(1, 2, GL_FLOAT, false, 0, 0);
-        gl.glEnableVertexAttribArray(1);
+        /*Matrix3D mvp_matrix = new Matrix3D();
+        mv_matrix.concatenate(pMat);
+        mv_matrix.concatenate(vMat);
+        mv_matrix.concatenate(mMat);*/
 
-        gl.glActiveTexture(GL_TEXTURE0);
-        gl.glBindTexture(GL_TEXTURE_2D, texture);
+        gl.glUniformMatrix4fv(model_loc, 1, false, mMat.getFloatValues(), 0);
+    }
 
-        gl.glEnable(GL_DEPTH_TEST);
-        gl.glDepthFunc(GL_LEQUAL);
+    public void display(GL4 gl, int rendering_program, Matrix3D pMat, Matrix3D vMat, AmbientLight globalAmbient,
+                        PositionalLight light, int depthCubemap, boolean useMaterials) {
+        update();
+        addMatricies(gl, rendering_program, pMat, vMat);
+        addLight(gl, rendering_program, vMat, globalAmbient, light);
+        glSettings(gl);
 
-        gl.glDrawArrays(GL_TRIANGLES, 0, posCoords.length/3);
+        gl.glActiveTexture(GL_TEXTURE1);
+        gl.glBindTexture(GL_TEXTURE_CUBE_MAP, depthCubemap);
+        System.out.println("using depthCubemap: " + depthCubemap);
+
+        drawVBOs(gl, rendering_program, useMaterials);
         mMat.setToIdentity();
     }
 
-    private float[] add(float[] array, vec3 p) {
+    public void display(GL4 gl, int rendering_program, Matrix3D pMat, Matrix3D vMat, AmbientLight globalAmbient,
+                        PositionalLight light, boolean useMaterials) {
+        update();
+        addMatricies(gl, rendering_program, pMat, vMat);
+        addLight(gl, rendering_program, vMat, globalAmbient, light);
+        glSettings(gl);
+        drawVBOs(gl, rendering_program, useMaterials);
+        mMat.setToIdentity();
+    }
+
+    public void display(GL4 gl, int rendering_program, Matrix3D pMat, Matrix3D vMat) {
+        update();
+        addMatricies(gl, rendering_program, pMat, vMat);
+        glSettings(gl);
+        drawVBOs(gl, rendering_program, false);
+        mMat.setToIdentity();
+    }
+
+    public void display(GL4 gl, int rendering_program) {
+        update();
+        addMatricies(gl, rendering_program);
+        //glSettings(gl);
+        drawVBOs(gl, rendering_program, false);
+        mMat.setToIdentity();
+    }
+
+    public void drawVBOs(GL4 gl, int rendering_program, boolean useMaterials) {
+        getMaterialLocations(gl, rendering_program);
+        if(!useMaterials) {
+            changeMaterial(gl, 0, false);
+        }
+
+        for(int i = 0; i < vbos.size(); i++) {
+            if(useMaterials) {
+                changeMaterial(gl, i, true);
+            }
+
+            gl.glBindBuffer(GL_ARRAY_BUFFER, vbos.get(i)[0]);
+            gl.glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
+            gl.glEnableVertexAttribArray(0);
+
+            gl.glBindBuffer(GL_ARRAY_BUFFER, vbos.get(i)[1]);
+            gl.glVertexAttribPointer(1, 2, GL_FLOAT, false, 0, 0);
+            gl.glEnableVertexAttribArray(1);
+
+            gl.glBindBuffer(GL_ARRAY_BUFFER, vbos.get(i)[2]);
+            gl.glVertexAttribPointer(2, 3, GL_FLOAT, false, 0, 0);
+            gl.glEnableVertexAttribArray(2);
+
+            gl.glActiveTexture(GL_TEXTURE0);
+            gl.glBindTexture(GL_TEXTURE_2D, textures.get(i));
+
+            gl.glDrawArrays(GL_TRIANGLES, 0, numVerts.get(i));
+        }
+    }
+
+    private void getMaterialLocations(GL4 gl, int rendering_program) {
+        material_amb_loc = gl.glGetUniformLocation(rendering_program, "material.ambient");
+        material_diff_loc = gl.glGetUniformLocation(rendering_program, "material.diffuse");
+        material_spec_loc = gl.glGetUniformLocation(rendering_program, "material.specular");
+        material_shiny_loc = gl.glGetUniformLocation(rendering_program, "material.shininess");
+
+    }
+
+    private void changeMaterial(GL4 gl, int i, boolean useMaterials) {
+        if(useMaterials) {
+            gl.glUniform4fv(material_amb_loc, 1, materials.get(i).getAmbient(), 0);
+            gl.glUniform4fv(material_diff_loc, 1, materials.get(i).getDiffuse(), 0);
+            gl.glUniform4fv(material_spec_loc, 1, materials.get(i).getSpecular(), 0);
+            gl.glUniform1f(material_shiny_loc, materials.get(i).getShininess());
+        } else {
+            gl.glUniform4fv(material_amb_loc, 1, defaultMaterial.getAmbient(), 0);
+            gl.glUniform4fv(material_diff_loc, 1, defaultMaterial.getDiffuse(), 0);
+            gl.glUniform4fv(material_spec_loc, 1, defaultMaterial.getSpecular(), 0);
+            gl.glUniform1f(material_shiny_loc, defaultMaterial.getShininess());
+        }
+    }
+
+    private static float[] add(float[] array, vec3 p) {
         float[] temp = new float[array.length + 3];
         System.arraycopy(array, 0, temp, 0, array.length);
         temp[array.length] = p.x;
@@ -219,11 +322,18 @@ public class Shape {
         temp[array.length + 2] = p.z;
         return temp;
     }
-    private float[] add(float[] array, vec2 p) {
+    private static float[] add(float[] array, vec2 p) {
         float[] temp = new float[array.length + 2];
         System.arraycopy(array, 0, temp, 0, array.length);
         temp[array.length] = p.x;
         temp[array.length + 1] = p.y;
+        return temp;
+    }
+
+    private static int[] add(int[] array, int num) {
+        int[] temp = new int[array.length + 1];
+        System.arraycopy(array, 0, temp, 0, array.length);
+        temp[array.length] = num;
         return temp;
     }
 
@@ -235,10 +345,25 @@ public class Shape {
      * @param p2 second
      * @param p3 third
      */
-    protected void addTriPlane(vec3 p1, vec3 p2, vec3 p3) {
-        posCoords = add(posCoords, p1);
-        posCoords = add(posCoords, p2);
-        posCoords = add(posCoords, p3);
+    protected static float[] addTriPlane(float[] positionCoords, vec3 p1, vec3 p2, vec3 p3) {
+        positionCoords = add(positionCoords, p1);
+        positionCoords = add(positionCoords, p2);
+        positionCoords = add(positionCoords, p3);
+        return positionCoords;
+    }
+
+    protected static float[] addTriNormal(float[] normalVectors, vec3 p1, vec3 p2, vec3 p3, boolean inverse) {
+        Vector3D vector1 = new Vector3D(p1.x - p2.x, p1.y - p2.y, p1.z - p2.z);
+        Vector3D vector2 = new Vector3D(p2.x - p3.x, p2.y - p3.y, p2.z - p3.z);
+        Vector3D result;
+        if (inverse) {
+             result = vector2.cross(vector1);
+        } else {
+            result = vector1.cross(vector2);
+        }
+        vec3 normal= new vec3((float) result.getZ(), (float) result.getY(), (float) result.getZ());
+        return add(normalVectors, normal);
+
     }
 
     /**
@@ -246,42 +371,47 @@ public class Shape {
      * and then bottom-most coordinate.
      * @param p the position of the middle point where the other points are adjacent.
      */
-    protected void addTriTex(Pos p) {
+    protected static float[] addTriTex(float[] textureCoords, Pos p) {
         if(p == Pos.topleft) {
-            texCoords = add(texCoords, new vec2(0,0));
-            texCoords = add(texCoords, new vec2(1,1));
-            texCoords = add(texCoords, new vec2(0,1));
+            textureCoords = add(textureCoords, new vec2(0,0));
+            textureCoords = add(textureCoords, new vec2(1,1));
+            textureCoords = add(textureCoords, new vec2(0,1));
         } else if(p == Pos.topright) {
-            texCoords = add(texCoords, new vec2(0,1));
-            texCoords = add(texCoords, new vec2(1,0));
-            texCoords = add(texCoords, new vec2(1,1));
+            textureCoords = add(textureCoords, new vec2(0,1));
+            textureCoords = add(textureCoords, new vec2(1,0));
+            textureCoords = add(textureCoords, new vec2(1,1));
         } else if(p == Pos.bottomleft) {
-            texCoords = add(texCoords, new vec2(0,0));
-            texCoords = add(texCoords, new vec2(1,0));
-            texCoords = add(texCoords, new vec2(0,1));
+            textureCoords = add(textureCoords, new vec2(0,0));
+            textureCoords = add(textureCoords, new vec2(1,0));
+            textureCoords = add(textureCoords, new vec2(0,1));
         } else if(p == Pos.bottomright) {
-            texCoords = add(texCoords, new vec2(0,0));
-            texCoords = add(texCoords, new vec2(1,0));
-            texCoords = add(texCoords, new vec2(1,1));
+            textureCoords = add(textureCoords, new vec2(0,0));
+            textureCoords = add(textureCoords, new vec2(1,0));
+            textureCoords = add(textureCoords, new vec2(1,1));
         } else if(p == Pos.topcenter) {
-            texCoords = add(texCoords, new vec2(0,0));
-            texCoords = add(texCoords, new vec2(1,0));
-            texCoords = add(texCoords, new vec2(0.5f,1));
+            textureCoords = add(textureCoords, new vec2(0,0));
+            textureCoords = add(textureCoords, new vec2(1,0));
+            textureCoords = add(textureCoords, new vec2(0.5f,1));
         }
+        return textureCoords;
     }
 
-    protected void addTex(Vector3D p1, Vector3D p2, Vector3D p3) {
+    protected static void addTex(Vector3D p1, Vector3D p2, Vector3D p3) {
 
     }
 
-    protected void addTriangle(vec3 p1, vec3 p2, vec3 p3, Pos p) {
-        addTriPlane(p1, p2, p3);
-        addTriTex(p);
+    protected static void addTriangle(float[] positionCoords, float[] textureCoords, vec3 p1, vec3 p2, vec3 p3, Pos p) {
+        addTriPlane(positionCoords, p1, p2, p3);
+        addTriTex(textureCoords, p);
     }
-    protected void addSquare(vec3 p1, vec3 p2, vec3 p3, vec3 p4) {
-        addTriPlane(p1,p2,p4);
-        addTriTex(Pos.bottomleft);
-        addTriPlane(p4,p2,p3);
-        addTriTex(Pos.topright);
+    protected static float[][] addSquare(float[] positionCoords, float[] textureCoords, float[] normalVectors, vec3 p1, vec3 p2, vec3 p3, vec3 p4) {
+        positionCoords = addTriPlane(positionCoords, p1,p2,p4);
+        //System.out.println("positionCoords.length: " + positionCoords.length);
+        textureCoords = addTriTex(textureCoords, Pos.bottomleft);
+        normalVectors = addTriNormal(normalVectors, p1,p2,p4, true);
+        positionCoords = addTriPlane(positionCoords, p4,p2,p3);
+        textureCoords = addTriTex(textureCoords, Pos.topright);
+        normalVectors = addTriNormal(normalVectors, p1,p2,p3, true);
+        return new float[][] {positionCoords, textureCoords, normalVectors};
     }
 }

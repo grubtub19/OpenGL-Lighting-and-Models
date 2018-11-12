@@ -52,8 +52,9 @@ public class Line {
 
         gl.glEnable(GL_DEPTH_TEST);
         gl.glDepthFunc(GL_LEQUAL);
+        gl.glEnable(GL_CULL_FACE);
+        gl.glFrontFace(GL_CCW);
         gl.glLineWidth(2.0f);
-
         gl.glDrawArrays(GL_LINES, 0, 2);
     }
 }
