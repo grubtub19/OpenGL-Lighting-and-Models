@@ -213,11 +213,11 @@ Event: 8.659 Thread 0x000000001f6a4000 Uncommon trap: reason=unstable_if action=
 Event: 8.845 Thread 0x000000001f6a4000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002d35d94 method=com.jogamp.opengl.util.PNGPixelRect.getPixelRGBSame(Ljava/nio/ByteBuffer;I[III)I @ 52
 Event: 8.852 Thread 0x000000001f6a4000 Uncommon trap: reason=range_check action=make_not_entrant pc=0x0000000002dbd57c method=com.jogamp.opengl.util.PNGPixelRect.getPixelRGBSame(Ljava/nio/ByteBuffer;I[III)I @ 28
 Event: 13.008 Thread 0x000000001f6a4000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002f54c70 method=java.awt.EventQueue.coalesceMouseEvent(Ljava/awt/event/MouseEvent;)Z @ 24
-Event: 13.009 Thread 0x000000001f6a4000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000002f4475c method=sun.awt.SunToolkit.getAppContext(Ljava/lang/Object;)Lsun/awt/AppContext; @ 11
-Event: 13.009 Thread 0x000000001f6a4000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000002f4475c method=sun.awt.SunToolkit.getAppContext(Ljava/lang/Object;)Lsun/awt/AppContext; @ 11
+Event: 13.009 Thread 0x000000001f6a4000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000002f4475c method=sun.awt.SunToolkit.getAppContext(Ljava/lang/Model;)Lsun/awt/AppContext; @ 11
+Event: 13.009 Thread 0x000000001f6a4000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000002f4475c method=sun.awt.SunToolkit.getAppContext(Ljava/lang/Model;)Lsun/awt/AppContext; @ 11
 Event: 13.009 Thread 0x000000001f6a4000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002f21424 method=java.security.AccessControlContext.optimize()Ljava/security/AccessControlContext; @ 220
-Event: 13.010 Thread 0x000000001f6a4000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000002f4475c method=sun.awt.SunToolkit.getAppContext(Ljava/lang/Object;)Lsun/awt/AppContext; @ 11
-Event: 13.010 Thread 0x000000001f6a4000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000002f4475c method=sun.awt.SunToolkit.getAppContext(Ljava/lang/Object;)Lsun/awt/AppContext; @ 11
+Event: 13.010 Thread 0x000000001f6a4000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000002f4475c method=sun.awt.SunToolkit.getAppContext(Ljava/lang/Model;)Lsun/awt/AppContext; @ 11
+Event: 13.010 Thread 0x000000001f6a4000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000002f4475c method=sun.awt.SunToolkit.getAppContext(Ljava/lang/Model;)Lsun/awt/AppContext; @ 11
 
 Internal exceptions (10 events):
 Event: 0.199 Thread 0x0000000002762800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b6f4438) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u144\9417\hotspot\src\share\vm\prims\jvm.cpp, line 1390]

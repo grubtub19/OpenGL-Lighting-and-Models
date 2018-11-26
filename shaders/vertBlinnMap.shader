@@ -4,6 +4,7 @@ layout (location=0) in vec3 vertPos;
 layout (location=1) in vec2 texCoord;
 layout (location=2) in vec3 vertNormal;
 
+out vec3 modelVertPos;
 out vec3 varyingVertPos;
 out vec3 varyingLightDir;
 out vec3 varyingNormal;
@@ -36,8 +37,9 @@ uniform mat4 proj_matrix;
 
 void main(void)
 {
+    modelVertPos = (m_matrix * vec4(vertPos,1.0)).xyz;
     varyingVertPos = (v_matrix * m_matrix * vec4(vertPos,1.0)).xyz;
-    varyingLightDir = light.position - varyingVertPos;
+    varyingLightDir = (v_matrix * vec4(light.position, 1.0)).xyz - varyingVertPos;
     varyingNormal = (norm_matrix * vec4(vertNormal,1.0)).xyz;
     varyingHalfVector = (varyingLightDir + (-varyingVertPos)).xyz;
     gl_Position = proj_matrix * v_matrix * m_matrix * vec4(vertPos,1.0);

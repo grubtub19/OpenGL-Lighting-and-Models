@@ -3,15 +3,16 @@ import graphicslib3D.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.nio.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.*;
+
+import static com.jogamp.opengl.GL2ES1.GL_ALPHA_TEST;
 import static com.jogamp.opengl.GL4.*;
 import static graphicslib3D.light.AmbientLight.getAmbientLight;
 
 import com.jogamp.opengl.*;
 import com.jogamp.opengl.awt.GLCanvas;
-import com.jogamp.common.nio.Buffers;
 import graphicslib3D.light.*;
 
 public class Solar extends JFrame implements GLEventListener {
@@ -20,7 +21,7 @@ public class Solar extends JFrame implements GLEventListener {
     public static int rendering_programBlinnMap;
     public static int rendering_programNormal;
     public static int rendering_programLine;
-    public static int rendering_programNoRender;
+    public static int rendering_programShadow;
 
     private GLCanvas myCanvas;
     private GLSLUtils util = new GLSLUtils();
@@ -30,12 +31,22 @@ public class Solar extends JFrame implements GLEventListener {
     private PosLight posLight;
     private Square bulb;
     private ArrayList<Shape> shapes = new ArrayList<>();
+    private Shape samurai;
+    private Shape maid;
+    private Shape peter;
+    private Shape planet;
+    private Shape eva;
+    private Shape patty;
+    private Shape ellie;
+    private Shape square;
+    private Shape eggman;
     private ArrayList<Line> lines = new ArrayList<>();
     private Skybox skyBox;
     MyListener listen;
     private long prevTime;
     private long currTime;
     private float timeElapsed;
+    private boolean spaceToggle = false;
 
     public Solar() {
         setTitle("Solar System");
@@ -56,23 +67,29 @@ public class Solar extends JFrame implements GLEventListener {
         requestFocus();
         this.setVisible(true);
         currTime = System.currentTimeMillis();
-        FPSAnimator animator = new FPSAnimator(myCanvas, 30);
+        FPSAnimator animator = new FPSAnimator(myCanvas, 60);
         animator.start();
     }
 
     public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("READY?");
+        reader.next();
+        reader.close();
         new Solar();
     }
 
     public void init(GLAutoDrawable drawable) {
         GL4 gl = (GL4) GLContext.getCurrentGL();
         gl.glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+        gl.glEnable(GL_BLEND);
+        gl.glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         rendering_programBlinn = createShaderProgram("Blinn");
         rendering_programBlinnMap = createShaderProgram("BlinnMap");
         rendering_programPhong = createShaderProgram("Phong");
         rendering_programLine = createShaderProgram("Line");
         rendering_programNormal = createShaderProgram("Sky");
-        rendering_programNoRender = createShaderProgram("Shadow");
+        rendering_programShadow = createShaderProgram("Shadow");
         gl.glGenVertexArrays(vao.length, vao, 0);
         gl.glBindVertexArray(vao[0]);
         initLights(gl);
@@ -91,7 +108,7 @@ public class Solar extends JFrame implements GLEventListener {
 
         String vshaderSource[];
         String fshaderSource[];
-        String gshaderSource[];
+
         vshaderSource = util.readShaderSource("shaders/vert" + d + ".shader");
         fshaderSource = util.readShaderSource("shaders/frag" + d + ".shader");
 
@@ -109,6 +126,7 @@ public class Solar extends JFrame implements GLEventListener {
         gl.glAttachShader(vfprogram, fShader);
 
         if(d == "Shadow") {
+            String gshaderSource[];
             gshaderSource = util.readShaderSource("shaders/geom" + d + ".shader");
             int gShader = gl.glCreateShader(GL_GEOMETRY_SHADER);
             gl.glShaderSource(gShader, gshaderSource.length, gshaderSource, null, 0);
@@ -130,9 +148,9 @@ public class Solar extends JFrame implements GLEventListener {
         d.setDirection(new Vector3D(0,0,-1));
         */
 
-        posLight = new PosLight(gl,1024);
-        posLight.light.setAmbient(new float[] { 0.1f, 0.1f, 0.1f, 1.0f });
-        posLight.light.setDiffuse(new float[] { 1.0f, 1.0f, 1.0f, 1.0f });
+        posLight = new PosLight(gl,2048);
+        posLight.light.setAmbient(new float[] { 0.06f, 0.1f, 0.1f, 1.0f });
+        posLight.light.setDiffuse(new float[] { 0.6f, 1.0f, 1.0f, 1.0f });
         posLight.light.setSpecular(new float[] { 1.0f, 1.0f, 1.0f, 1.0f });
         posLight.light.setConstantAtt(1.0f);
         posLight.light.setLinearAtt(0.1f);
@@ -155,24 +173,43 @@ public class Solar extends JFrame implements GLEventListener {
         skyBox = new Skybox(gl, camera, "Models/alienSkybox.jpg");
         bulb = new Square(gl, .5f, "stars8k.jpg");
         //shapes.add(new Square(gl, 10, "stars8k.jpg"));
-        //shapes.add(new Object(gl,"Models/shuttle/shuttle.obj","Models/shuttle/shuttle.jpg", false));
+        //shapes.add(new Model(gl,"Models/shuttle/shuttle.obj","Models/shuttle/shuttle.jpg", false));
         //shapes.get(1).scale(10f,10f,10f);
 
-        //shapes.add(new Object(gl, "Models/Miku/miku.obj", "Models/Miku/miku.mtl", true));
+        //shapes.add(new Model(gl, "Models/Miku/miku.obj", "Models/Miku/miku.mtl", true));
         //shapes.get(2).move(new Vector3D(6,0,6));
         //shapes.get(2).scale(.1f,.1f,.1f);
         //shapes.get(2).setRotX(30);
-        shapes.add(new Object(gl, "Models/Tsurara/Tsurara.obj", "Models/Tsurara/Tsurara.mtl", true));
-        shapes.get(0).move(new Vector3D(4,-8,0));
+        shapes.add(square = new Sphere(gl, 200, "white.jpg"));
+        square.scale(1,0.01f, 1);
+        square.move(new Vector3D(0, -10, 0));
 
-        shapes.add(new Object(gl, "Models/Peter/peter.obj", "Models/Peter/peter.mtl", true));
-        shapes.get(1).scale(10,10,10);
-        shapes.get(1).move(new Vector3D(-6, -2, 0));
-        shapes.add(new Object(gl, "Models/Woman/woman.obj", "Models/Woman/woman.mtl", true));
-        shapes.get(2).move(new Vector3D(0,-14,6));
+        shapes.add(maid = new Model(gl, "Models/Tsurara/Tsurara.obj", "Models/Tsurara/Tsurara.mtl", true, true));
+        maid.move(new Vector3D(6,-8,0));
 
-        shapes.add(new Sphere(gl, 4, "Models/2k_jupiter.jpg"));
-        shapes.get(3).move(new Vector3D(10,10,10));
+        shapes.add(peter = new Model(gl, "Models/Peter/peter.obj", "Models/Peter/peter.mtl", true, true));
+        peter.scale(10,10,10);
+        peter.move(new Vector3D(-12, -2, 0));
+
+        shapes.add(samurai = new Model(gl, "Models/Woman/woman.obj", "Models/Woman/woman.mtl", true, false));
+        samurai.move(new Vector3D(0,-10,12));
+
+        shapes.add(planet = new Sphere(gl, 4, "Models/2k_jupiter.jpg"));
+        planet.move(new Vector3D(20,10,20));
+
+        shapes.add(eva = new Model(gl, "Models/Eva Unit 03/Unit 03.obj", "Models/Eva Unit 03/Unit 03.mtl", true, true));
+        eva.move(new Vector3D(0,0,-8));
+        eva.scale(0.5f,0.5f,0.5f);
+
+        shapes.add(patty = new Model(gl, "Models/Krabby Patty/krabbypattie01.obj", "Models/Krabby Patty/krabbypattie01.mtl", true, true));
+        patty.move(new Vector3D(-8,-4,-12));
+
+        shapes.add(ellie = new Model(gl, "Models/Ellie/Ellie.obj", "Models/Ellie/Ellie.mtl", true, true));
+        ellie.move(new Vector3D(8, -4, -12));
+        ellie.scale(10,10,10);
+
+        shapes.add(eggman = new Model(gl, "Models/Eggman/eggman.obj", "Models/Eggman/eggman.mtl", true, false));
+        eggman.move(new Vector3D(16, 0, 14 ));
 
         lines.add(new Line(gl, "x", new Vector3D(0,0,0), new Vector3D(8,0,0)));
         lines.add(new Line(gl, "y", new Vector3D(0,0,0), new Vector3D(0,8,0)));
@@ -180,6 +217,90 @@ public class Solar extends JFrame implements GLEventListener {
     }
 
     public void dispose(GLAutoDrawable drawable) {}
+
+    /**
+     * Updates objects in scene
+     */
+    public void update() {
+        prevTime = currTime;
+        currTime = System.currentTimeMillis();
+        timeElapsed = currTime - prevTime;
+        listen.update();
+        doKeyEvents();
+        camera.moveCamera(listen, timeElapsed);
+
+        maid.setRotY(maid.rotY + 16);
+
+        //peter.setRotZ(peter.rotZ + 1);
+        peter.setRotY(peter.rotY + 4);
+
+        //samurai.setRotX(samurai.rotX + 2);
+        samurai.setRotY(samurai.rotY + 2);
+
+        patty.setRotY(patty.rotY + 2);
+        //patty.setRotZ(patty.rotZ + 1);
+
+        //ellie.setRotX(ellie.rotX + 4);
+        ellie.setRotY(ellie.rotY + 2);
+
+        //eva.setRotZ(eva.rotZ + 1);
+        eva.setRotY(eva.rotY + 2);
+
+
+
+    }
+
+    public void display(GLAutoDrawable drawable) {
+        update();
+
+        GL4 gl = (GL4) GLContext.getCurrentGL();
+        //reset color buffer to all black
+        float black[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+        gl.glClearBufferfv(GL_COLOR, 0, black, 0);
+        gl.glClear(GL_DEPTH_BUFFER_BIT);
+        //calc perspective matrix
+        float aspect = (float) myCanvas.getWidth() / (float) myCanvas.getHeight();
+        Matrix3D pMat = perspective(60.0f, aspect, 0.1f, 1000.0f);
+        //calc view matrix
+        Matrix3D vMat = new Matrix3D();
+        vMat.concatenate(camera.getRotMatrix());
+        passOne(gl);
+        passTwo(gl, pMat, vMat);
+    }
+
+    private void passOne(GL4 gl) {
+        gl.glUseProgram(rendering_programShadow);
+        posLight.genShadowMap(gl, rendering_programShadow, shapes);
+        gl.glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        gl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    }
+
+    /**
+     * The render pass
+     * @param gl GL4
+     * @param pMat projection matrix
+     * @param vMat view matrix
+     */
+    private void passTwo(GL4 gl, Matrix3D pMat, Matrix3D vMat) {
+        gl.glViewport(0,0, getWidth(), getHeight());
+
+        gl.glUseProgram(rendering_programNormal);
+        skyBox.display(gl, rendering_programNormal, pMat, vMat);
+
+        if(spaceToggle) {
+            gl.glUseProgram(rendering_programLine);
+            for (Line line : lines) {
+                line.display(gl, rendering_programLine, pMat, vMat);
+            }
+        }
+        gl.glUseProgram(rendering_programNormal);
+        bulb.display(gl, rendering_programNormal, pMat, vMat);
+
+        gl.glUseProgram(rendering_programBlinnMap);
+        for(Shape shape: shapes) {
+            shape.displayShadow(gl, rendering_programBlinnMap, pMat, vMat, globalAmbient, posLight, true);
+        }
+    }
 
     private void doKeyEvents() {
         if(listen.keyboard.esc.getPosition() == State.Position.press) {
@@ -225,70 +346,7 @@ public class Solar extends JFrame implements GLEventListener {
                     posLight.light.getPosition().getZ()));
             bulb.setPosition(posLight.light.getPosition());
         }
-        //System.out.println("posLight.position: " + posLight.light.getPosition().toString());
-        //System.out.println("bulb.position: " + bulb.position.toString());
     }
-
-    public void update() {
-        prevTime = currTime;
-        currTime = System.currentTimeMillis();
-        timeElapsed = currTime - prevTime;
-        listen.update();
-        doKeyEvents();
-        camera.moveCamera(listen, timeElapsed);
-    }
-
-    public void display(GLAutoDrawable drawable) {
-        update();
-
-        GL4 gl = (GL4) GLContext.getCurrentGL();
-        //reset color buffer to all black
-        float black[] = { 0.0f, 0.0f, 0.0f, 1.0f };
-        gl.glClearBufferfv(GL_COLOR, 0, black, 0);
-        gl.glClear(GL_DEPTH_BUFFER_BIT);
-        //calc perspective matrix
-        float aspect = (float) myCanvas.getWidth() / (float) myCanvas.getHeight();
-        Matrix3D pMat = perspective(60.0f, aspect, 0.1f, 1000.0f);
-        //calc view matrix
-        Matrix3D vMat = new Matrix3D();
-        vMat.concatenate(camera.getRotMatrix());
-
-        int depthCubemap = passOne(gl);
-        passTwo(gl, pMat, vMat, depthCubemap);
-    }
-
-    private int passOne(GL4 gl) {
-        //for lights
-        gl.glCullFace(GL_FRONT);
-        return posLight.genShadowMap(gl, rendering_programNoRender, shapes);
-
-
-        //gl.glViewport(0,0, shadowWidth, shadowHeight);
-    }
-
-    private void passTwo(GL4 gl, Matrix3D pMat, Matrix3D vMat, int depthCubemap) {
-        gl.glViewport(0,0, getWidth(), getHeight());
-        gl.glClear(GL_COLOR_BUFFER_BIT);
-        gl.glClear(GL_DEPTH_BUFFER_BIT);
-        gl.glUseProgram(rendering_programNormal);
-        skyBox.display(gl, rendering_programNormal, pMat, vMat);
-
-        if(spaceToggle) {
-            gl.glUseProgram(rendering_programLine);
-            for (Line line : lines) {
-                line.display(gl, rendering_programLine, pMat, vMat);
-            }
-        }
-        gl.glUseProgram(rendering_programBlinn);
-        bulb.display(gl, rendering_programBlinn, pMat, vMat, globalAmbient, posLight.light, depthCubemap, true);
-
-        gl.glUseProgram(rendering_programBlinnMap);
-        for(Shape shape: shapes) {
-            shape.display(gl, rendering_programBlinnMap, pMat, vMat, globalAmbient, posLight.light, depthCubemap, true);
-        }
-    }
-
-    private boolean spaceToggle = false;
 
     public void reshape(GLAutoDrawable drawable, int i, int i1, int i2, int i3) {}
 

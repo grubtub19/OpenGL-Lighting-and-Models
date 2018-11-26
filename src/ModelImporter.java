@@ -28,10 +28,19 @@ public class ModelImporter {
                 System.out.println("It does not have a .mtl, instead, it uses a single texture file.");
                 texture = secondFilename;
                 parseOBJ(objFilename);          //if it's a single texture model, only parse the obj file
+
                 linkMaterialsAndTextures();
             }
         } catch (IOException e) {
             System.err.println("Failed Loading ModelImporter Files: \n" + e);
+        } catch (ModelException e) {
+            System.out.println("Model Exception: " + e);
+        }
+    }
+
+    class ModelException extends Exception {
+        public ModelException(String s) {
+            super(s);
         }
     }
 
@@ -60,9 +69,10 @@ public class ModelImporter {
             groups.get(0).texture = texture;
         }
         for (ModelGroup group : groups) {
-            //System.out.println("Current Group: " + group.groupName);
+            //System.out.println("Current Group Material: " + group.materialName);
+            //System.out.println("Vert num: " + group.getNumVertices());
             for (MaterialTexture materialTexture : materialTextures) {
-                //System.out.println("    comparing against: " + materialTexture.material.getName());
+                //System.out.println("    comparing against: " + materialTexture.getName());
                 if (group.materialName.equals(materialTexture.getName())) {
 
                     group.material = materialTexture.material;
@@ -80,19 +90,22 @@ public class ModelImporter {
      * @param filename
      * @throws IOException
      */
-    public void parseMDL(String filename) throws IOException {
+    public void parseMDL(String filename) throws IOException, ModelException {
         File file = new File(filename);
         InputStream input = new FileInputStream(file);
         BufferedReader br = new BufferedReader(new InputStreamReader(input));
         String line;
+        System.out.println("Starting MTL parse");
         while ((line = br.readLine()) != null) {                    //while we haven't reached the EOF
-            //System.out.println("Next Material:  " + line);
+            System.out.println(line);
             if (line.startsWith("newmtl ")) {                       //if it's the start of a new Material definition
+                System.out.println("Next Material:  " + line);
                 materialTextures.add(new MaterialTexture(line.substring(7)));   //create an empty MaterialTexture
                 while ((line = br.readLine()) != null && line.trim().length() > 0) {
                     //while we haven't reached EOF or an empty line
                     line = line.trim();                 //remove leading and trailing spaces
-                    //System.out.println("    " + line);
+
+                    //System.out.println("line: " + line);
                     if (line.startsWith("Ka ")) {
                         String[] numbers = line.substring(3).trim().split(" ");    //numbers = array of numbers
                         materialTextures.get(materialTextures.size() - 1).material.setAmbient(new float[]
@@ -116,9 +129,9 @@ public class ModelImporter {
                         materialTextures.get(materialTextures.size() - 1).material.setShininess(Float.valueOf(shinyness));
                         //set the shininess value to the first word on the right
                     } else if (line.startsWith("map_Kd")) {
-                        String textureName = line.substring(7).trim().split(" ")[0]; //textureName = the very next word
+                        String textureName = line.substring(7).trim(); //textureName = the very next word
                         materialTextures.get(materialTextures.size() - 1).texture = file.getParent() + "\\" + textureName;
-                        //System.out.println("materialTextures.get(" + (materialTextures.size() - 1) + ").texture = " + textureName);
+                        System.out.println("materialTextures.get(" + (materialTextures.size() - 1) + ").texture = " + materialTextures.get(materialTextures.size() - 1).texture);
                         //set the texture filename to that of the .jpg file in the same directory as the .mtl
                     }
                 }
@@ -127,7 +140,7 @@ public class ModelImporter {
         input.close();
     }
 
-    public void parseOBJ(String filename) throws IOException {
+    public void parseOBJ(String filename) throws IOException, ModelException  {
         File file = new File(filename);
         InputStream input = new FileInputStream(file);
         BufferedReader br = new BufferedReader(new InputStreamReader(input));
@@ -137,9 +150,9 @@ public class ModelImporter {
             //System.out.println("line: " + line);
             if (line.startsWith("v "))            // vertex position ("v" case)
             {
-                System.out.print("v -> line: " + line.substring(2));
+                //System.out.print("v -> line: " + line.substring(2));
                 for (String s : (line.substring(2)).trim().split(" ")) {   //for each preceding number (expected: 3)
-                    System.out.println("s: *" + s + "*");
+                    //System.out.println("s: *" + s + "*");
                     allVertices.add(Float.parseFloat(s)); //append it to the list of all verticies
                 }
                 //System.out.println();
@@ -175,13 +188,16 @@ public class ModelImporter {
                     temp.materialName = currMaterial;       //add a new "noName" group with the current material
                     groups.add(temp);
                 }
-                System.out.print("f");
+                //System.out.print("f");
                 for (String s : (line.substring(2)).trim().split(" ")) {   //for each preceding word
-                    System.out.println("f ->line: " + s);
-
-                    String v = s.split("/")[0];    // whole vertex location                //split the word by '/'
-                    String vt = s.split("/")[1];   // whole texture vertex location         //assign variables to the values
-                    String vn = s.split("/")[2];   // whole normal vector location
+                    //System.out.println("f ->line: " + s);
+                    String[] split = s.split("/");
+                    if(split.length < 3) {
+                        throw new ModelException("Missing Normals");
+                    }
+                    String v = split[0];    // whole vertex location                //split the word by '/'
+                    String vt = split[1];   // whole texture vertex location         //assign variables to the values
+                    String vn = split[2];   // whole normal vector location
 
                     int vertRef = (Integer.valueOf(v) - 1) * 3;  //vertex array location
                     int tcRef = (Integer.valueOf(vt) - 1) * 2;   //texture array location
@@ -204,14 +220,19 @@ public class ModelImporter {
                     //System.out.println("Normals: " + allNormalVectors.get(normRef) + ", " + allNormalVectors.get(normRef + 1) + ", " + allNormalVectors.get(normRef +2));
                 }
                 //System.out.println();
-            } else if (line.startsWith("g ")) { // group
+            } else if (line.startsWith("g ") | line.startsWith("o ")) { // group
 
                 String groupName = line.substring(2); //groupName = the rest of the line
                 //System.out.println("Creating group " + groupName);
-                groups.add(new ModelGroup(groupName));  //add a new group to the list of all groups. This will be the
-                                                        // group that is edited in the function from now on
+                if(groups.size() > 0) {
+                    if(groups.get(groups.size() - 1).getNumVertices() < 1) {
+                        groups.remove(groups.size() - 1);
+                    }
+                    groups.add(new ModelGroup(groupName));  //add a new group to the list of all groups. This will be the
+                    //group that is edited in the function from now on
+                }
             } else if (line.startsWith("usemtl ")) {    //material
-
+                System.out.println("use material: " + line.substring(7).split("\\s+")[0]);
                 currMaterial = line.substring(7).split("\\s+")[0]; // currMaterial = the next word
 
             }

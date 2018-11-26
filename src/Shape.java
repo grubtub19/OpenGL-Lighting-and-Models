@@ -27,6 +27,7 @@ public class Shape {
     protected ArrayList<Integer> numVerts;
     protected ArrayList<Material> materials;
     protected Matrix3D mMat;
+
     public static Material defaultMaterial = new Material( new float[] { 1.0f, 1.0f, 1.0f, 1.0f },
             new float[] { 1.0f, 1.0f, 1.0f, 1.0f },
             new float[] { 0.5f, 0.5f, 0.5f, 1.0f },
@@ -87,42 +88,21 @@ public class Shape {
         return Math.max(Math.abs(rotX), Math.max(Math.abs(rotY), Math.abs(rotZ)));
     }
 
-    public float getRotCompX() {
-        float num = rotX / getDegrees();
-        if (Float.isNaN(num)) {
-            return 0;
-        }
-        else {
-            return num;
-        }
-    }
-
-    public float getRotCompY() {
-        float num = rotY / getDegrees();
-        if (Float.isNaN(num)) {
-            return 0;
-        }
-        else {
-            return num;
-        }
-    }
-
-    public float getRotCompZ() {
-        float num = rotZ / getDegrees();
-        if (Float.isNaN(num)) {
-            return 0;
-        }
-        else {
-            return num;
-        }
-    }
-
     public void setRotX(float x) { rotX = x; }
 
     public void setRotY(float y) { rotY = y; }
 
     public void setRotZ(float z) { rotZ = z; }
 
+    /**
+     * Adds a vbo to the vbos array
+     * @param gl
+     * @param positionCoords
+     * @param textureCoords
+     * @param normalVectors
+     * @param texture
+     * @param material
+     */
     public void setup(GL4 gl, float[] positionCoords, float[] textureCoords, float[] normalVectors, String texture, Material material) {
         vbos.add(new int[3]);
         int vboNum = vbos.size() - 1;
@@ -145,11 +125,8 @@ public class Shape {
         }
 
         numVerts.add(positionCoords.length / 3);
+        System.out.println("Texture load: " + texture);
         textures.add(loadTexture(texture).getTextureObject());
-        System.out.println(textures.toString());
-        System.out.println("texture int value: " + textures.get(textures.size() - 1) + ", vboNum: " + vboNum);
-        System.out.println("vbos.get(" + vboNum + "): " + vbos.get(vboNum)[0] + " " + vbos.get(vboNum)[1] + " " + vbos.get(vboNum)[2]);
-
         materials.add(material);
     }
 
@@ -163,38 +140,75 @@ public class Shape {
         return tex;
     }
 
+    /**
+     * Adds the translation, rotation, and scaling values into the model matrix
+     */
     protected void update() {
         mMat.translate(position.getX(), position.getY(), position.getZ());
         mMat.rotate(rotX, rotY, rotZ);
         mMat.scale(scale.x, scale.y, scale.z);
     }
 
+    /**
+     * sets the OpenGL settings for when the shape is drawn
+     * @param gl
+     */
     protected void glSettings(GL4 gl) {
         //gl.glClear(GL_DEPTH_BUFFER_BIT);
         gl.glEnable(GL_DEPTH_TEST);
         gl.glDepthFunc(GL_LEQUAL);
         gl.glEnable(GL_CULL_FACE);
         gl.glFrontFace(GL_CCW);
+        gl.glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        gl.glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     }
 
-    private void addLight(GL4 gl, int rendering_program, Matrix3D vMat, AmbientLight ambient, PositionalLight light) {
+    /**
+     * Sets the uniform values of the ambient light and the positional light in the shader. The light's position coordinates
+     * are made relative to the view matrix.
+     * @param gl
+     * @param rendering_program
+     * @param vMat
+     * @param ambient
+     * @param posLight
+     */
+    private void addLight(GL4 gl, int rendering_program, Matrix3D vMat, AmbientLight ambient, PosLight posLight, boolean shadows) {
         int globalAmbient_loc = gl.glGetUniformLocation(rendering_program, "globalAmbient");
         int light_amb_loc = gl.glGetUniformLocation(rendering_program, "light.ambient");
         int light_diff_loc = gl.glGetUniformLocation(rendering_program, "light.diffuse");
         int light_spec_loc = gl.glGetUniformLocation(rendering_program, "light.specular");
+        //int light_constant_loc = gl.glGetUniformLocation(rendering_program, "light.constantAtt");
+        //int light_linear_loc = gl.glGetUniformLocation(rendering_program, "light.linearAtt");
+        //int light_quad_loc = gl.glGetUniformLocation(rendering_program, "light.quadAtt");
         int light_pos_loc = gl.glGetUniformLocation(rendering_program, "light.position");
 
-        Point3D lightPv = light.getPosition().mult(vMat);
-        float[] viewLight = new float[] { (float) lightPv.getX(), (float) lightPv.getY(), (float) lightPv.getZ() };
-
         gl.glUniform4fv(globalAmbient_loc, 1, ambient.getValues(), 0);
-        gl.glUniform4fv(light_amb_loc, 1, light.getAmbient(), 0);
-        gl.glUniform4fv(light_diff_loc, 1, light.getDiffuse(), 0);
-        gl.glUniform4fv(light_spec_loc, 1, light.getSpecular(), 0);
-        gl.glUniform3fv(light_pos_loc, 1, viewLight, 0);
+        gl.glUniform4fv(light_amb_loc, 1, posLight.light.getAmbient(), 0);
+        gl.glUniform4fv(light_diff_loc, 1, posLight.light.getDiffuse(), 0);
+        gl.glUniform4fv(light_spec_loc, 1, posLight.light.getSpecular(), 0);
+        //gl.glUniform1f(light_constant_loc, posLight.light.getConstantAtt());
+        //gl.glUniform1f(light_linear_loc, posLight.light.getLinearAtt());
+        //gl.glUniform1f(light_quad_loc, posLight.light.getQuadraticAtt());
+        float[] lightPosFloats = new float[] { (float) posLight.light.getPosition().getX(), (float) posLight.light.getPosition().getY(), (float) posLight.light.getPosition().getZ() };
+        gl.glUniform3fv(light_pos_loc, 1, lightPosFloats, 0);
+
+
+        if(shadows) {
+            int light_far_loc = gl.glGetUniformLocation(rendering_program, "far_plane");
+            gl.glUniform1f(light_far_loc, ((float)posLight.farPlane));
+            gl.glActiveTexture(GL_TEXTURE1);
+            gl.glBindTexture(GL_TEXTURE_CUBE_MAP, posLight.depthCubemap);
+        }
     }
 
-    private void addMatricies(GL4 gl, int rendering_program, Matrix3D pMat, Matrix3D vMat) {
+    /**
+     * Sets uniform variables of the matrices used for normal rendering
+     * @param gl GL4
+     * @param rendering_program
+     * @param pMat projection matrix
+     * @param vMat view matrix
+     */
+    private void addMatrices(GL4 gl, int rendering_program, Matrix3D pMat, Matrix3D vMat) {
         int m_loc = gl.glGetUniformLocation(rendering_program, "m_matrix");
         int v_loc = gl.glGetUniformLocation(rendering_program, "v_matrix");
         int proj_loc = gl.glGetUniformLocation(rendering_program, "proj_matrix");
@@ -210,7 +224,12 @@ public class Shape {
         gl.glUniformMatrix4fv(norm_loc, 1, false, mv_matrix.inverse().transpose().getFloatValues(), 0);
     }
 
-    private void addMatricies(GL4 gl, int rendering_program) {
+    /**
+     * Sets uniform variables of the matrices for shadow mapping
+     * @param gl GL4
+     * @param rendering_program
+     */
+    private void addMatrices(GL4 gl, int rendering_program) {
         int model_loc = gl.glGetUniformLocation(rendering_program, "model");
 
         /*Matrix3D mvp_matrix = new Matrix3D();
@@ -221,47 +240,80 @@ public class Shape {
         gl.glUniformMatrix4fv(model_loc, 1, false, mMat.getFloatValues(), 0);
     }
 
-    public void display(GL4 gl, int rendering_program, Matrix3D pMat, Matrix3D vMat, AmbientLight globalAmbient,
-                        PositionalLight light, int depthCubemap, boolean useMaterials) {
+    /**
+     * Draws the shape with lighting and shadows
+     * @param gl
+     * @param rendering_program
+     * @param pMat
+     * @param vMat
+     * @param globalAmbient
+     * @param light
+     * @param useMaterials
+     */
+    public void displayShadow(GL4 gl, int rendering_program, Matrix3D pMat, Matrix3D vMat, AmbientLight globalAmbient,
+                        PosLight light, boolean useMaterials) {
         update();
-        addMatricies(gl, rendering_program, pMat, vMat);
-        addLight(gl, rendering_program, vMat, globalAmbient, light);
         glSettings(gl);
-
-        gl.glActiveTexture(GL_TEXTURE1);
-        gl.glBindTexture(GL_TEXTURE_CUBE_MAP, depthCubemap);
-        System.out.println("using depthCubemap: " + depthCubemap);
-
+        addMatrices(gl, rendering_program, pMat, vMat);
+        addLight(gl, rendering_program, vMat, globalAmbient, light, true);
         drawVBOs(gl, rendering_program, useMaterials);
         mMat.setToIdentity();
     }
 
+    /**
+     * Draws the shape normally with lighting and WITHOUT shadows
+     * @param gl
+     * @param rendering_program
+     * @param pMat projection matrix
+     * @param vMat view matrix
+     * @param globalAmbient
+     * @param light
+     * @param useMaterials
+     */
     public void display(GL4 gl, int rendering_program, Matrix3D pMat, Matrix3D vMat, AmbientLight globalAmbient,
-                        PositionalLight light, boolean useMaterials) {
+                        PosLight light, boolean useMaterials) {
         update();
-        addMatricies(gl, rendering_program, pMat, vMat);
-        addLight(gl, rendering_program, vMat, globalAmbient, light);
+        addMatrices(gl, rendering_program, pMat, vMat);
+        addLight(gl, rendering_program, vMat, globalAmbient, light, false);
         glSettings(gl);
         drawVBOs(gl, rendering_program, useMaterials);
         mMat.setToIdentity();
     }
 
+    /**
+     * Draws the shape normally WITHOUT lighting or shadows
+     * @param gl
+     * @param rendering_program
+     * @param pMat
+     * @param vMat
+     */
     public void display(GL4 gl, int rendering_program, Matrix3D pMat, Matrix3D vMat) {
         update();
-        addMatricies(gl, rendering_program, pMat, vMat);
+        addMatrices(gl, rendering_program, pMat, vMat);
         glSettings(gl);
         drawVBOs(gl, rendering_program, false);
         mMat.setToIdentity();
     }
 
+    /**
+     * Draws the shape when shadow mapping
+     * @param gl
+     * @param rendering_program
+     */
     public void display(GL4 gl, int rendering_program) {
         update();
-        addMatricies(gl, rendering_program);
+        addMatrices(gl, rendering_program);
         //glSettings(gl);
-        drawVBOs(gl, rendering_program, false);
+        drawVBOs(gl);
         mMat.setToIdentity();
     }
 
+    /**
+     * Calls glDraw() on every ModelGroup (vbo[])
+     * @param gl
+     * @param rendering_program
+     * @param useMaterials
+     */
     public void drawVBOs(GL4 gl, int rendering_program, boolean useMaterials) {
         getMaterialLocations(gl, rendering_program);
         if(!useMaterials) {
@@ -292,14 +344,34 @@ public class Shape {
         }
     }
 
+    public void drawVBOs(GL4 gl) {
+        for(int i = 0; i < vbos.size(); i++) {
+            gl.glBindBuffer(GL_ARRAY_BUFFER, vbos.get(i)[0]);
+            gl.glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
+            gl.glEnableVertexAttribArray(0);
+
+            gl.glDrawArrays(GL_TRIANGLES, 0, numVerts.get(i));
+        }
+    }
+
+    /**
+     * Retrieves the location values for the shape's "material" uniform variable in the shader
+     * @param gl
+     * @param rendering_program
+     */
     private void getMaterialLocations(GL4 gl, int rendering_program) {
         material_amb_loc = gl.glGetUniformLocation(rendering_program, "material.ambient");
         material_diff_loc = gl.glGetUniformLocation(rendering_program, "material.diffuse");
         material_spec_loc = gl.glGetUniformLocation(rendering_program, "material.specular");
         material_shiny_loc = gl.glGetUniformLocation(rendering_program, "material.shininess");
-
     }
 
+    /**
+     * Sets the uniform values of the shape's "material". If this shape doesnt have any materials, uses a default material
+     * @param gl
+     * @param i
+     * @param useMaterials
+     */
     private void changeMaterial(GL4 gl, int i, boolean useMaterials) {
         if(useMaterials) {
             gl.glUniform4fv(material_amb_loc, 1, materials.get(i).getAmbient(), 0);

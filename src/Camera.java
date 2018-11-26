@@ -67,6 +67,8 @@ public class Camera {
         move = forward.mult(moveSensitivity * time * speedUpVal);
         move.setY(0);
         move(move);
+        System.out.println("forward: " + forward.getX() + ", " + forward.getY() + ", " + forward.getZ());
+        System.out.println("yaw: " + yaw + ", pitch: " + pitch);
     }
 
     public void moveBackward(float time) {

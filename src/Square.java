@@ -1,10 +1,19 @@
 import com.jogamp.opengl.GL4;
 
+import static com.jogamp.opengl.GL.*;
+
 public class Square extends Shape {
 
     public Square(GL4 gl, float height, String texture) {
         genCoords(gl, height, texture);
     }
+
+    /*protected void glSettings(GL4 gl) {
+        gl.glEnable(GL_DEPTH_TEST);
+        gl.glDepthFunc(GL_LEQUAL);
+        gl.glEnable(GL_CULL_FACE);
+        gl.glFrontFace(GL_CCW);
+    }*/
 
     public void genCoords(GL4 gl, float h, String texture) {
         float[] positionCoords = new float[0];

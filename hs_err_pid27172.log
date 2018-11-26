@@ -208,10 +208,10 @@ Heap after GC invocations=10 (full 3):
 }
 
 Deoptimization events (10 events):
-Event: 8.348 Thread 0x000000001f9c6000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000002fb9ec4 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
-Event: 8.348 Thread 0x000000001f9c6000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000002fb9ec4 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
-Event: 8.348 Thread 0x000000001f9c6000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000002fb9ec4 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
-Event: 8.348 Thread 0x000000001f9c6000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000002fb9ec4 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 8.348 Thread 0x000000001f9c6000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000002fb9ec4 method=java.util.AbstractCollection.toArray([Ljava/lang/Model;)[Ljava/lang/Model; @ 119
+Event: 8.348 Thread 0x000000001f9c6000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000002fb9ec4 method=java.util.AbstractCollection.toArray([Ljava/lang/Model;)[Ljava/lang/Model; @ 119
+Event: 8.348 Thread 0x000000001f9c6000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000002fb9ec4 method=java.util.AbstractCollection.toArray([Ljava/lang/Model;)[Ljava/lang/Model; @ 119
+Event: 8.348 Thread 0x000000001f9c6000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000002fb9ec4 method=java.util.AbstractCollection.toArray([Ljava/lang/Model;)[Ljava/lang/Model; @ 119
 Event: 8.403 Thread 0x000000001f9c6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002fd1bd0 method=java.lang.String.split(Ljava/lang/String;I)[Ljava/lang/String; @ 8
 Event: 8.489 Thread 0x000000001f9c6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002f72428 method=java.lang.String.trim()Ljava/lang/String; @ 23
 Event: 8.489 Thread 0x000000001f9c6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002fe2ed0 method=java.lang.String.split(Ljava/lang/String;I)[Ljava/lang/String; @ 207

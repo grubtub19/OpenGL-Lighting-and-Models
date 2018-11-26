@@ -1,0 +1,79 @@
+# Blender MTL File: 'None'
+# Material Count: 7
+
+newmtl chr_eggman_beard_abd.png
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.503562 0.754000 0.681829
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd chr_eggman_beard_abd.png
+
+newmtl chr_eggman_body_abd.png
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.363121 0.584519 0.373618
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd chr_eggman_body_abd.png
+
+newmtl chr_eggman_cloth_abd.png
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.708396 0.643659 0.377334
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd chr_eggman_cloth_abd.png
+
+newmtl chr_eggman_face_abd.png
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640608 0.430459 0.689236
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd chr_eggman_face_abd.png
+
+newmtl chr_eggman_lens_abd.png
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.546890 0.797277 0.650539
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd chr_eggman_lens_abd.png
+
+newmtl chr_eggman_metal_abd.png
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.527626 0.648752 0.529894
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd chr_eggman_metal_abd.png
+
+newmtl chr_eggman_seam_abd.png
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.450793 0.619408 0.345227
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd chr_eggman_seam_abd.png

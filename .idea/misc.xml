@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/Models/Eggman/eggman.obj" />
+    <file url="file://$PROJECT_DIR$/Models/Ellie/Ellie.obj" />
+    <file url="file://$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.obj" />
+    <file url="file://$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.obj" />
     <file url="file://$PROJECT_DIR$/Models/Miku/miku.obj" />
     <file url="file://$PROJECT_DIR$/Models/Miku/Type 2020 Miku.obj" />
     <file url="file://$PROJECT_DIR$/Models/Peter/peter.obj" />
+    <file url="file://$PROJECT_DIR$/Models/Shrek/CHARACTER_Shrek.obj" />
     <file url="file://$PROJECT_DIR$/Models/Shuttle/shuttle.obj" />
+    <file url="file://$PROJECT_DIR$/Models/Tibbers/Tibbers Super Galaxy.obj" />
     <file url="file://$PROJECT_DIR$/Models/Tsurara/Tsurara.obj" />
-    <file url="file://$PROJECT_DIR$/Models/Woman/chr_p_w01a.obj" />
-    <file url="file://$PROJECT_DIR$/Type 2020 Miku.obj" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

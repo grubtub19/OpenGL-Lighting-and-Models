@@ -208,8 +208,8 @@ Heap after GC invocations=10 (full 3):
 }
 
 Deoptimization events (10 events):
-Event: 8.460 Thread 0x000000001fed4800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000003407644 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
-Event: 8.460 Thread 0x000000001fed4800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000003407644 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 8.460 Thread 0x000000001fed4800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000003407644 method=java.util.AbstractCollection.toArray([Ljava/lang/Model;)[Ljava/lang/Model; @ 119
+Event: 8.460 Thread 0x000000001fed4800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000003407644 method=java.util.AbstractCollection.toArray([Ljava/lang/Model;)[Ljava/lang/Model; @ 119
 Event: 8.473 Thread 0x000000001fed4800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000340c118 method=sun.misc.FloatingDecimal$ASCIIToBinaryBuffer.floatValue()F @ 83
 Event: 8.519 Thread 0x000000001fed4800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003422eec method=java.lang.String.split(Ljava/lang/String;I)[Ljava/lang/String; @ 8
 Event: 8.606 Thread 0x000000001fed4800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000033e5168 method=java.lang.String.trim()Ljava/lang/String; @ 23

@@ -1,94 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SolarSystem:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="61f85e91-ce25-4070-87f9-aa79966df5dc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Miku/Image09C27700_09C272A0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Miku/Image09C37780_09C26A60.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Miku/Image09C3F800_09C26E80.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Miku/Image09CD3980_09CC3060.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Miku/Image09CDBA00_09CC3480.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Miku/Type 2020 Miku.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Miku/Type 2020 Miku.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Miku/miku.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Miku/miku.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Peter/Image08F6F190_08F6ED80.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Peter/Image08F73210_08F731C0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Peter/Image08F94310_08F93F00.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Peter/peter.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Peter/peter.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0000_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0001_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0002_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0003_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0004_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0005_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0006_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0007_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0008_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0009_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0010_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0011_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0012_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tex_0013_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tsurara.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tsurara/Tsurara.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Woman/chr_p_w01a_body01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Woman/chr_p_w01a_body02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Woman/chr_p_w01a_face.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Woman/chr_p_w01a_spheremap_body.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Woman/chr_p_w01a_spheremap_hair.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Woman/woman.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Woman/woman.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/alienSkybox.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/canyon1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spaceship.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Keyboard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ModelGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ModelImporter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Object.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PosLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Skybox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SolarSystem_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eggman/chr_eggman_beard_abd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eggman/chr_eggman_cloth_abd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eggman/chr_eggman_face_abd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eggman/chr_eggman_lens_abd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eggman/chr_eggman_metal_abd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eggman/chr_eggman_seam_abd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eggman/eggman.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eggman/eggman.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Ellie/Ellie.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Ellie/Ellie.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Ellie/ellie-backpack-low-color - dxt1 - 1024x1024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Ellie/ellie-hands-singleplayer-color - dxt1 - 1024x1024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Ellie/ellie-jeans-color - dxt1 - 1024x1024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Ellie/ellie-shirt-color - dxt1 - 2048x2048.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Ellie/eyelashes-color - dxt1 - 256x256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Ellie/eyeoverlay-color - dxt1 - 128x128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Ellie/eyes-temp-color - dxt1 - 256x256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Ellie/new-ellie-hair-color - dxt1 - 2048x1024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Ellie/new-ellie-head-color - dxt1 - 1024x1024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Ellie/shoes-color - dxt1 - 512x512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Slenderman/SM Model.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Slenderman/SM Model.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Slenderman/man of slender.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Slenderman/slenderman_color.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Tibbers/AnnieTibbers_Skin11_TX_CM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Tibbers/Tibbers Super Galaxy.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Tibbers/Tibbers Super Galaxy.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2k_jupiter.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/2k_jupiter.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2k_mars.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/2k_mars.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2k_mercury.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/2k_mercury.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2k_moon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/2k_moon.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2k_neptune.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/2k_neptune.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2k_saturn.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/2k_saturn.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2k_stars.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/2k_stars.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2k_uranus.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/2k_uranus.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2k_venus_surface.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/2k_venus_surface.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8k_sun.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/8k_sun.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/earthmap1k.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/earthmap1k.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/moon.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Camera$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SolarSystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid20876.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid20876.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid256.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid256.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid26836.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid26836.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid27172.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid27172.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid28192.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid28192.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid9960.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid9960.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Camera.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Line.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/MyListener$Key.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/MyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/MyListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/PentagonalPrism.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/PentagonalPrism.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Pyramid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Pyramid.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/ModelImporter$MaterialTexture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/ModelImporter$MaterialTexture.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/ModelImporter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/ModelImporter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Mouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Mouse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Object.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/PosLight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/PosLight.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Shape$Pos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Shape$Pos.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Shape.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Solar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Solar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Sphere.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Sphere.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Square.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peter.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Peter/peter.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shaders/frag.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shaders/fragLine.shader" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/fragLine.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shaders/vert.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shaders/vertLine.shader" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/vertLine.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/replay_pid20876.log" beforeDir="false" afterPath="$PROJECT_DIR$/replay_pid20876.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/replay_pid256.log" beforeDir="false" afterPath="$PROJECT_DIR$/replay_pid256.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/replay_pid27172.log" beforeDir="false" afterPath="$PROJECT_DIR$/replay_pid27172.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/replay_pid28192.log" beforeDir="false" afterPath="$PROJECT_DIR$/replay_pid28192.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/fragBlinnMap.shader" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/fragBlinnMap.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/fragShadow.shader" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/fragShadow.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/geomShadow.shader" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/geomShadow.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/vertBlinnMap.shader" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/vertBlinnMap.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/vertShadow.shader" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/vertShadow.shader" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Line.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PentagonalPrism.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PentagonalPrism.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pyramid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pyramid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ModelImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ModelImporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PosLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PosLight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Solar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Solar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sphere.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Square.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -100,45 +93,44 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SolarSystem$Solar.ic" NAME="Solar Coverage Results" MODIFIED="1540850587590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SolarSystem$Solar.ic" NAME="Solar Coverage Results" MODIFIED="1542856522972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Solar.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Solar.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Solar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="286" column="55" selection-start-line="286" selection-start-column="55" selection-end-line="286" selection-end-column="55" />
+            <state relative-caret-position="293">
+              <caret line="151" column="52" selection-start-line="151" selection-start-column="52" selection-end-line="151" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2213#2214#0" expanded="true" />
-                <element signature="e#2240#2241#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vertBlinn.shader" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shaders/vertBlinn.shader">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-            </state>
-          </provider>
+      <file leaf-file-name="SM Model.mtl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/Slenderman/SM Model.mtl">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="fragBlinn.shader" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shaders/fragBlinn.shader">
+      <file leaf-file-name="PosLight.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PosLight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-442" />
+            <state relative-caret-position="828">
+              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Shape.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Shape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2483">
-              <caret line="259" column="10" selection-start-line="259" selection-start-column="10" selection-end-line="259" selection-end-column="10" />
+            <state relative-caret-position="23">
+              <caret line="162" column="59" selection-start-line="162" selection-start-column="59" selection-end-line="162" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -146,59 +138,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vertBlinnMap.shader" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shaders/vertBlinnMap.shader">
+      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="897">
-              <caret line="39" column="54" lean-forward="true" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+            <state relative-caret-position="483">
+              <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragBlinnMap.shader" pinned="false" current-in-tab="false">
+      <file leaf-file-name="fragBlinnMap.shader" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shaders/fragBlinnMap.shader">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-330">
-              <caret line="38" selection-start-line="38" selection-end-line="47" selection-end-column="3" />
+            <state relative-caret-position="386">
+              <caret line="79" column="23" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vertShadow.shader" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shaders/vertShadow.shader">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-            </state>
-          </provider>
+      <file leaf-file-name="chr_eggman_body_abd.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/Eggman/chr_eggman_body_abd.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file leaf-file-name="geomShadow.shader" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shaders/geomShadow.shader">
+      <file leaf-file-name="ModelImporter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ModelImporter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fragShadow.shader" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shaders/fragShadow.shader">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PosLight.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PosLight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="696">
-              <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="2070">
+              <caret line="99" column="12" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -215,21 +182,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>time</find>
-      <find>texCoo</find>
-      <find>texCoor</find>
-      <find>tc</find>
-      <find>double</find>
-      <find>display</find>
-      <find>camera</find>
-      <find>setup</find>
-      <find>ambi</find>
-      <find>light.getPo</find>
-      <find>v_half</find>
-      <find>ambient</find>
-      <find>glob</find>
-      <find>positionCoords.le</find>
-      <find>create</find>
       <find>render</find>
       <find>glGent</find>
       <find>norm</find>
@@ -245,6 +197,21 @@
       <find>init</find>
       <find>posL</find>
       <find>default</find>
+      <find>glSett</find>
+      <find>System.out</find>
+      <find>m_</find>
+      <find>set</find>
+      <find>light.set</find>
+      <find>texture</find>
+      <find>use</find>
+      <find>texture lo</find>
+      <find>o</find>
+      <find>texture lda</find>
+      <find>glTex</find>
+      <find>system.out.</find>
+      <find>usemtl</find>
+      <find>glBind</find>
+      <find>system.out</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -266,10 +233,8 @@
         <option value="$PROJECT_DIR$/shaders/vertLine.shader" />
         <option value="$PROJECT_DIR$/src/ImportedModel.java" />
         <option value="$PROJECT_DIR$/src/MaterialTexture.java" />
-        <option value="$PROJECT_DIR$/src/Model.java" />
         <option value="$PROJECT_DIR$/Models/Woman/woman.mtl" />
         <option value="$PROJECT_DIR$/Models/Miku/woman.mtl" />
-        <option value="$PROJECT_DIR$/src/Mouse.java" />
         <option value="$PROJECT_DIR$/src/Line.java" />
         <option value="$PROJECT_DIR$/src/ModelGroup.java" />
         <option value="$PROJECT_DIR$/src/PentagonalPrism.java" />
@@ -277,9 +242,7 @@
         <option value="$PROJECT_DIR$/src/Object.java" />
         <option value="$PROJECT_DIR$/shaders/fragSky.shader" />
         <option value="$PROJECT_DIR$/shaders/vertSky.shader" />
-        <option value="$PROJECT_DIR$/src/Square.java" />
         <option value="$PROJECT_DIR$/src/Skybox.java" />
-        <option value="$PROJECT_DIR$/src/Camera.java" />
         <option value="$PROJECT_DIR$/src/State.java" />
         <option value="$PROJECT_DIR$/src/Keyboard.java" />
         <option value="$PROJECT_DIR$/src/MyListener.java" />
@@ -288,24 +251,33 @@
         <option value="$PROJECT_DIR$/shaders/frag.shader" />
         <option value="$PROJECT_DIR$/shaders/fragPhong.shader" />
         <option value="$PROJECT_DIR$/src/Light.java" />
-        <option value="$PROJECT_DIR$/shaders/vertShadow.shader" />
         <option value="$PROJECT_DIR$/shaders/vertBlinn - Copy.shader" />
         <option value="$PROJECT_DIR$/shaders/fragBlinn - Copy.shader" />
+        <option value="$PROJECT_DIR$/shaders/fragBlinn.shader" />
+        <option value="$PROJECT_DIR$/shaders/vertShadow.shader" />
         <option value="$PROJECT_DIR$/shaders/geomShadow.shader" />
-        <option value="$PROJECT_DIR$/src/ModelImporter.java" />
-        <option value="$PROJECT_DIR$/shaders/fragBlinnMap.shader" />
         <option value="$PROJECT_DIR$/shaders/fragShadow.shader" />
-        <option value="$PROJECT_DIR$/src/Shape.java" />
+        <option value="$PROJECT_DIR$/src/Mouse.java" />
+        <option value="$PROJECT_DIR$/src/Camera.java" />
+        <option value="$PROJECT_DIR$/shaders/vertBlinnMap.shader" />
+        <option value="$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.mtl" />
+        <option value="$PROJECT_DIR$/Models/Ellie/Ellie.obj" />
+        <option value="$PROJECT_DIR$/src/Square.java" />
         <option value="$PROJECT_DIR$/src/PosLight.java" />
+        <option value="$PROJECT_DIR$/src/ModelImporter.java" />
+        <option value="$PROJECT_DIR$/src/Model.java" />
+        <option value="$PROJECT_DIR$/Models/Eggman/eggman.mtl" />
+        <option value="$PROJECT_DIR$/src/Shape.java" />
         <option value="$PROJECT_DIR$/src/Solar.java" />
+        <option value="$PROJECT_DIR$/shaders/fragBlinnMap.shader" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1861" />
-    <option name="y" value="-8" />
-    <option name="width" value="943" />
-    <option name="height" value="1080" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="23" />
+    <option name="y" value="-15" />
+    <option name="width" value="1865" />
+    <option name="height" value="1087" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -313,8 +285,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -331,6 +301,36 @@
             <path>
               <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+              <item name="Eggman" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+              <item name="Ellie" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+              <item name="Peter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+              <item name="Slenderman" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+              <item name="Tibbers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
               <item name="shaders" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -342,29 +342,32 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="ArrayList&#9;PSI&#9;JAVA://java.util.ArrayList" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Graphics" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.14022988" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\Models\Miku" />
-      <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\Models\Woman" />
-      <recent name="C:\Users\Peter\IdeaProjects\SolarSystem" />
-      <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\src" />
-      <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\shaders" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\shaders" />
       <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\Models\Miku" />
       <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\Models\Woman" />
       <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\Models\Shuttle" />
       <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\Models\Peter" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\Models\Eggman" />
+      <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\Models" />
+      <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\Models\Eva Unit 03" />
+      <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\Models\Miku" />
+      <recent name="C:\Users\Peter\IdeaProjects\SolarSystem\Models\Woman" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -379,7 +382,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Solar">
     <configuration name="Solar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Solar" />
       <module name="SolarSystem" />
@@ -404,6 +407,27 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="Jar" type="JarApplication" factoryName="JAR Application">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SolarSystem_jar/SolarSystem.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Peter\IdeaProjects\SolarSystem" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method>
+        <option name="BuildArtifacts" enabled="false">
+          <artifact name="SolarSystem:jar" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SolarSystem_jar/SolarSystem.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Peter\IdeaProjects\SolarSystem" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="SolarSystem" />
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="SolarSystem:jar" />
+        </option>
+      </method>
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -426,6 +450,10 @@
       <properties />
       <listeners />
     </configuration>
+    <list>
+      <item itemvalue="JAR Application.Jar" />
+      <item itemvalue="Application.Solar" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Solar" />
@@ -446,35 +474,35 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1861" y="-8" width="1869" height="1096" extended-state="6" />
-    <editor active="true" />
+    <frame x="54" y="-8" width="1874" height="1096" extended-state="7" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="TODO" order="5" />
       <window_info anchor="bottom" id="Messages" order="6" sideWeight="0.49703503" weight="0.32721713" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="7" show_stripe_button="false" sideWeight="0.502965" side_tool="true" weight="0.37410805" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info active="true" anchor="right" id="Run" order="8" visible="true" weight="0.31624392" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.502965" side_tool="true" weight="0.40876657" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info active="true" anchor="right" id="Run" order="9" sideWeight="0.49949032" visible="true" weight="0.32938644" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.124123044" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49919137" weight="0.37410805" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1393972" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.39959225" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.18042813" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="0" sideWeight="0.5005097" side_tool="true" weight="0.32956383" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49919137" weight="0.37410805" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -482,364 +510,257 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="11" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Models/Miku/Image09C3F800_09C26E80.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Miku/Type 2020 Miku.obj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-47942">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Woman/chr_p_w01a.obj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="1575" column="27" selection-start-line="1575" selection-start-column="3" selection-end-line="1575" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Woman/chr_p_w01a.obj.mtl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Peter/peter.obj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23914">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Woman/woman.obj">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Miku/woman.mtl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Miku/miku.obj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7610" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/fragLine.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="11" selection-start-column="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ModelGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="22" column="68" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PentagonalPrism.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="43" column="51" lean-forward="true" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Woman/chr_p_w01a_body01.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Woman/chr_p_w01a_body02.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Woman/chr_p_w01a_face.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Woman/chr_p_w01a_spheremap_body.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Woman/chr_p_w01a_spheremap_hair.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pyramid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="26" column="94" selection-start-line="26" selection-start-column="94" selection-end-line="26" selection-end-column="94" />
-          <folding>
-            <element signature="e#126#127#0" expanded="true" />
-            <element signature="e#172#173#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Woman/woman.mtl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Line.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/fragSky.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/vertSky.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Skybox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="117" column="14" selection-start-line="117" selection-start-column="14" selection-end-line="117" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1357">
-          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
-          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
-          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
-          <folding>
-            <element signature="e#124#125#0" expanded="true" />
-            <element signature="e#170#171#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Keyboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hs_err_pid26836.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3057" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/vert.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="41" column="66" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/frag.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-          <folding>
-            <element signature="e#246#247#0" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Documents/JOGL/jogamp-all-platforms/jar/jogl-all.jar!/com/jogamp/opengl/GL.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1357">
-          <caret line="301" column="8" selection-start-line="301" selection-start-column="8" selection-end-line="301" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Camera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="26" column="60" lean-forward="true" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/replay_pid27172.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7061">
-          <caret line="1650" column="45" lean-forward="true" selection-start-line="1650" selection-start-column="45" selection-end-line="1650" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/fragBlinn - Copy - Copy.shader">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/vertBlinn - Copy.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/fragBlinn - Copy.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/fragPhong.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="37" column="1" lean-forward="true" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Documents/JOGL/jogamp-all-platforms/jar/jogl-all.jar!/com/jogamp/opengl/GL2ES2.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="287" column="8" selection-start-line="287" selection-start-column="8" selection-end-line="287" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ModelImporter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3082">
-          <caret line="136" column="14" selection-start-line="136" selection-start-column="14" selection-end-line="136" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1801#1802#0" expanded="true" />
-            <element signature="e#1862#1863#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Sphere.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
           <caret line="23" column="73" lean-forward="true" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#155#156#0" expanded="true" />
-            <element signature="e#201#202#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tex_0013_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tex_0010_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tex_0009_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tex_0008_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tex_0007_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tex_0006_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tex_0005_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tex_0004_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tex_0003_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tex_0002_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tex_0001_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tex_0000_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tsurara/Tsurara.obj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205850">
+          <caret line="8950" selection-start-line="8923" selection-end-line="8950" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/SolarSystem/PentagonalPrism.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/SolarSystem/PosLight.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/SolarSystem/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/shaders/vertBlinn.shader">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/vertShadow.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/geomShadow.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        <state relative-caret-position="115">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shaders/fragShadow.shader">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="299">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shaders/fragBlinn.shader">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-442" />
+        <state relative-caret-position="759">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/vertShadow.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/geomShadow.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Mouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1118">
+          <caret line="70" column="64" selection-start-line="70" selection-start-column="64" selection-end-line="70" selection-end-column="64" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shaders/vertBlinnMap.shader">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="39" column="54" lean-forward="true" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+        <state relative-caret-position="704">
+          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PosLight.java">
+    <entry file="file://$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.DAE" />
+    <entry file="file://$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.obj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+        <state relative-caret-position="-248582" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Line.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ModelGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-189">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Woman/woman.mtl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.mtl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Krabby Patty/krabbypattie01.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tibbers/Tibbers Super Galaxy.mtl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Tibbers/Tibbers Super Galaxy.obj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50531">
+          <caret line="2196" column="38" selection-start-line="2196" selection-start-column="38" selection-end-line="2196" selection-end-column="38" />
+          <caret line="2197" column="38" selection-start-line="2197" selection-start-column="38" selection-end-line="2197" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Peter/peter.obj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13">
+          <caret line="13001" column="29" lean-forward="true" selection-start-line="13001" selection-start-column="29" selection-end-line="13001" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Peter/peter.mtl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Ellie/Ellie.obj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Ellie/Ellie.mtl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/fragBlinnMap.shader">
+    <entry file="file://$PROJECT_DIR$/Models/Shrek/CHARACTER_Shrek.obj" />
+    <entry file="file://$PROJECT_DIR$/src/ModelImporter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330">
-          <caret line="38" selection-start-line="38" selection-end-line="47" selection-end-column="3" />
+        <state relative-caret-position="2070">
+          <caret line="99" column="12" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Shape.java">
+    <entry file="file://$PROJECT_DIR$/src/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2483">
-          <caret line="259" column="10" selection-start-line="259" selection-start-column="10" selection-end-line="259" selection-end-column="10" />
+        <state relative-caret-position="483">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Slenderman/SM Model.mtl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Eggman/chr_eggman_body_abd.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Eggman/eggman.mtl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Eggman/eggman.obj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1824981">
+          <caret line="79347" column="6" selection-start-line="79347" selection-end-line="79347" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PosLight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -848,13 +769,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Solar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="286" column="55" selection-start-line="286" selection-start-column="55" selection-end-line="286" selection-end-column="55" />
+        <state relative-caret-position="293">
+          <caret line="151" column="52" selection-start-line="151" selection-start-column="52" selection-end-line="151" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2213#2214#0" expanded="true" />
-            <element signature="e#2240#2241#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="162" column="59" selection-start-line="162" selection-start-column="59" selection-end-line="162" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/fragBlinnMap.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="79" column="23" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -864,10 +800,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>SolarSystem:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14022988" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -879,7 +817,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14022988" />
               </list>
             </option>
           </splitter-proportions>
@@ -914,7 +852,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14022988" />
                 <option value="0.6" />
               </list>
             </option>
@@ -938,7 +876,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14022988" />
               </list>
             </option>
           </splitter-proportions>

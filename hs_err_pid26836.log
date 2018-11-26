@@ -90,13 +90,13 @@ j  jogamp.opengl.GLDrawableHelper.invokeGLImpl(Lcom/jogamp/opengl/GLDrawable;Lco
 j  jogamp.opengl.GLDrawableHelper.invokeGL(Lcom/jogamp/opengl/GLDrawable;Lcom/jogamp/opengl/GLContext;Ljava/lang/Runnable;Ljava/lang/Runnable;)V+72
 j  com.jogamp.opengl.awt.GLCanvas$12.run()V+104
 j  java.awt.event.InvocationEvent.dispatch()V+11
-j  java.awt.EventQueue.dispatchEventImpl(Ljava/awt/AWTEvent;Ljava/lang/Object;)V+21
-j  java.awt.EventQueue.access$500(Ljava/awt/EventQueue;Ljava/awt/AWTEvent;Ljava/lang/Object;)V+3
+j  java.awt.EventQueue.dispatchEventImpl(Ljava/awt/AWTEvent;Ljava/lang/Model;)V+21
+j  java.awt.EventQueue.access$500(Ljava/awt/EventQueue;Ljava/awt/AWTEvent;Ljava/lang/Model;)V+3
 j  java.awt.EventQueue$3.run()Ljava/lang/Void;+32
-j  java.awt.EventQueue$3.run()Ljava/lang/Object;+1
+j  java.awt.EventQueue$3.run()Ljava/lang/Model;+1
 v  ~StubRoutines::call_stub
-j  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)Ljava/lang/Object;+0
-j  java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)Ljava/lang/Object;+18
+j  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)Ljava/lang/Model;+0
+j  java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)Ljava/lang/Model;+18
 j  java.awt.EventQueue.dispatchEvent(Ljava/awt/AWTEvent;)V+46
 j  java.awt.EventDispatchThread.pumpOneEventForFilters(I)V+245
 j  java.awt.EventDispatchThread.pumpEventsForFilter(ILjava/awt/Conditional;Ljava/awt/EventFilter;)V+35
@@ -278,10 +278,10 @@ Heap after GC invocations=10 (full 3):
 }
 
 Deoptimization events (10 events):
-Event: 8.279 Thread 0x000000001fd62800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000003278c44 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
-Event: 8.279 Thread 0x000000001fd62800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000003278c44 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
-Event: 8.279 Thread 0x000000001fd62800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000003278c44 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
-Event: 8.279 Thread 0x000000001fd62800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000003278c44 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 8.279 Thread 0x000000001fd62800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000003278c44 method=java.util.AbstractCollection.toArray([Ljava/lang/Model;)[Ljava/lang/Model; @ 119
+Event: 8.279 Thread 0x000000001fd62800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000003278c44 method=java.util.AbstractCollection.toArray([Ljava/lang/Model;)[Ljava/lang/Model; @ 119
+Event: 8.279 Thread 0x000000001fd62800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000003278c44 method=java.util.AbstractCollection.toArray([Ljava/lang/Model;)[Ljava/lang/Model; @ 119
+Event: 8.279 Thread 0x000000001fd62800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000000003278c44 method=java.util.AbstractCollection.toArray([Ljava/lang/Model;)[Ljava/lang/Model; @ 119
 Event: 8.345 Thread 0x000000001fd62800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000328e290 method=java.lang.String.split(Ljava/lang/String;I)[Ljava/lang/String; @ 8
 Event: 8.474 Thread 0x000000001fd62800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000324efe8 method=java.lang.String.trim()Ljava/lang/String; @ 23
 Event: 8.474 Thread 0x000000001fd62800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000329669c method=java.lang.String.split(Ljava/lang/String;I)[Ljava/lang/String; @ 207
