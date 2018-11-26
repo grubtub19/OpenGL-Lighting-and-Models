@@ -7,82 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61f85e91-ce25-4070-87f9-aa79966df5dc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SolarSystem_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eggman/chr_eggman_beard_abd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eggman/chr_eggman_cloth_abd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eggman/chr_eggman_face_abd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eggman/chr_eggman_lens_abd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eggman/chr_eggman_metal_abd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eggman/chr_eggman_seam_abd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eggman/eggman.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eggman/eggman.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Ellie/Ellie.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Ellie/Ellie.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Ellie/ellie-backpack-low-color - dxt1 - 1024x1024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Ellie/ellie-hands-singleplayer-color - dxt1 - 1024x1024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Ellie/ellie-jeans-color - dxt1 - 1024x1024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Ellie/ellie-shirt-color - dxt1 - 2048x2048.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Ellie/eyelashes-color - dxt1 - 256x256.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Ellie/eyeoverlay-color - dxt1 - 128x128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Ellie/eyes-temp-color - dxt1 - 256x256.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Ellie/new-ellie-hair-color - dxt1 - 2048x1024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Ellie/new-ellie-head-color - dxt1 - 1024x1024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Ellie/shoes-color - dxt1 - 512x512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_00.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Eva Unit 03/data_0eb80000diss_08.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Slenderman/SM Model.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Slenderman/SM Model.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Slenderman/man of slender.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Slenderman/slenderman_color.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tibbers/AnnieTibbers_Skin11_TX_CM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tibbers/Tibbers Super Galaxy.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Tibbers/Tibbers Super Galaxy.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SolarSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SolarSystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid20876.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid20876.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid256.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid256.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid26836.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid26836.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid27172.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid27172.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid28192.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid28192.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid9960.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid9960.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Camera.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/ModelImporter$MaterialTexture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/ModelImporter$MaterialTexture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/ModelImporter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/ModelImporter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Mouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Mouse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Object.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/PosLight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/PosLight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Shape$Pos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Shape$Pos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Shape.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Solar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Solar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SolarSystem/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SolarSystem/Square.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/replay_pid20876.log" beforeDir="false" afterPath="$PROJECT_DIR$/replay_pid20876.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/replay_pid256.log" beforeDir="false" afterPath="$PROJECT_DIR$/replay_pid256.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/replay_pid27172.log" beforeDir="false" afterPath="$PROJECT_DIR$/replay_pid27172.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/replay_pid28192.log" beforeDir="false" afterPath="$PROJECT_DIR$/replay_pid28192.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shaders/fragBlinnMap.shader" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/fragBlinnMap.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shaders/fragShadow.shader" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/fragShadow.shader" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shaders/geomShadow.shader" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/geomShadow.shader" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shaders/vertBlinnMap.shader" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/vertBlinnMap.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shaders/vertShadow.shader" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/vertShadow.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ModelImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ModelImporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PosLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PosLight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Solar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Solar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Square.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -100,8 +32,8 @@
       <file leaf-file-name="Solar.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Solar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="151" column="52" selection-start-line="151" selection-start-column="52" selection-end-line="151" selection-end-column="52" />
+            <state relative-caret-position="-4008">
+              <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -114,23 +46,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="PosLight.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PosLight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Shape.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Shape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="162" column="59" selection-start-line="162" selection-start-column="59" selection-end-line="162" selection-end-column="59" />
+            <state relative-caret-position="2083">
+              <caret line="248" column="20" selection-start-line="248" selection-start-column="20" selection-end-line="248" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,20 +58,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model.java">
+      <file leaf-file-name="PosLight.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PosLight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+            <state relative-caret-position="2511">
+              <caret line="154" column="48" lean-forward="true" selection-start-line="154" selection-start-column="48" selection-end-line="154" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragBlinnMap.shader" pinned="false" current-in-tab="true">
+      <file leaf-file-name="geomShadow.shader" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shaders/geomShadow.shader">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragBlinnMap.shader" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shaders/fragBlinnMap.shader">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="79" column="23" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
+            <state relative-caret-position="1253">
+              <caret line="97" column="4" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vertBlinnMap.shader" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shaders/vertBlinnMap.shader">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="25" column="2" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -182,7 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>render</find>
       <find>glGent</find>
       <find>norm</find>
       <find>drawArr</find>
@@ -212,6 +152,7 @@
       <find>usemtl</find>
       <find>glBind</find>
       <find>system.out</find>
+      <find>far_pla</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -255,27 +196,27 @@
         <option value="$PROJECT_DIR$/shaders/fragBlinn - Copy.shader" />
         <option value="$PROJECT_DIR$/shaders/fragBlinn.shader" />
         <option value="$PROJECT_DIR$/shaders/vertShadow.shader" />
-        <option value="$PROJECT_DIR$/shaders/geomShadow.shader" />
         <option value="$PROJECT_DIR$/shaders/fragShadow.shader" />
         <option value="$PROJECT_DIR$/src/Mouse.java" />
         <option value="$PROJECT_DIR$/src/Camera.java" />
-        <option value="$PROJECT_DIR$/shaders/vertBlinnMap.shader" />
         <option value="$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.mtl" />
         <option value="$PROJECT_DIR$/Models/Ellie/Ellie.obj" />
         <option value="$PROJECT_DIR$/src/Square.java" />
-        <option value="$PROJECT_DIR$/src/PosLight.java" />
         <option value="$PROJECT_DIR$/src/ModelImporter.java" />
         <option value="$PROJECT_DIR$/src/Model.java" />
         <option value="$PROJECT_DIR$/Models/Eggman/eggman.mtl" />
+        <option value="$PROJECT_DIR$/shaders/vertBlinnMap.shader" />
         <option value="$PROJECT_DIR$/src/Shape.java" />
-        <option value="$PROJECT_DIR$/src/Solar.java" />
         <option value="$PROJECT_DIR$/shaders/fragBlinnMap.shader" />
+        <option value="$PROJECT_DIR$/src/Solar.java" />
+        <option value="$PROJECT_DIR$/shaders/geomShadow.shader" />
+        <option value="$PROJECT_DIR$/src/PosLight.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="23" />
-    <option name="y" value="-15" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1758" />
+    <option name="y" value="-19" />
     <option name="width" value="1865" />
     <option name="height" value="1087" />
   </component>
@@ -474,7 +415,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1874" height="1096" extended-state="7" />
+    <frame x="-1861" y="-8" width="1869" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="TODO" order="5" />
@@ -485,11 +427,11 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.502965" side_tool="true" weight="0.40876657" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="right" id="Run" order="9" sideWeight="0.49949032" visible="true" weight="0.32938644" />
+      <window_info active="true" anchor="right" id="Run" order="9" sideWeight="0.49949032" visible="true" weight="0.3308149" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1393972" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11872639" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -587,13 +529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/fragShadow.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shaders/fragBlinn.shader">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="759">
@@ -608,13 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/geomShadow.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Mouse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="759">
@@ -626,13 +554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1118">
           <caret line="70" column="64" selection-start-line="70" selection-start-column="64" selection-end-line="70" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/vertBlinnMap.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -730,13 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/Slenderman/SM Model.mtl">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -757,10 +671,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PosLight.java">
+    <entry file="file://$PROJECT_DIR$/src/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+        <state relative-caret-position="483">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/fragShadow.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2083">
+          <caret line="248" column="20" selection-start-line="248" selection-start-column="20" selection-end-line="248" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -769,28 +697,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Solar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="151" column="52" selection-start-line="151" selection-start-column="52" selection-end-line="151" selection-end-column="52" />
+        <state relative-caret-position="-4008">
+          <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Shape.java">
+    <entry file="file://$PROJECT_DIR$/shaders/vertBlinnMap.shader">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="162" column="59" selection-start-line="162" selection-start-column="59" selection-end-line="162" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="319">
+          <caret line="25" column="2" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shaders/fragBlinnMap.shader">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="79" column="23" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
+        <state relative-caret-position="1253">
+          <caret line="97" column="4" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/geomShadow.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PosLight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2511">
+          <caret line="154" column="48" lean-forward="true" selection-start-line="154" selection-start-column="48" selection-end-line="154" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

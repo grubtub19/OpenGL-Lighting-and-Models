@@ -28,7 +28,7 @@ public class Solar extends JFrame implements GLEventListener {
     private AmbientLight globalAmbient = getAmbientLight();
     private int vao[] = new int[1];
     private Camera camera = new Camera(0,0,0);
-    private PosLight posLight;
+    private ArrayList<PosLight> posLights;
     private Square bulb;
     private ArrayList<Shape> shapes = new ArrayList<>();
     private Shape samurai;
@@ -147,15 +147,24 @@ public class Solar extends JFrame implements GLEventListener {
         d.setSpecular(white);
         d.setDirection(new Vector3D(0,0,-1));
         */
+        posLights = new ArrayList<>();
+        posLights.add(new PosLight(gl,2048));
+        posLights.get(0).light.setAmbient(new float[] { 0.06f, 0.1f, 0.1f, 1.0f });
+        posLights.get(0).light.setDiffuse(new float[] { 0.6f, 1.0f, 1.0f, 1.0f });
+        posLights.get(0).light.setSpecular(new float[] { 1.0f, 1.0f, 1.0f, 1.0f });
+        posLights.get(0).light.setConstantAtt(1.0f);
+        posLights.get(0).light.setLinearAtt(0.1f);
+        posLights.get(0).light.setQuadraticAtt(0.1f);
+        posLights.get(0).light.setPosition(new Point3D(0, 0, 0));
 
-        posLight = new PosLight(gl,2048);
-        posLight.light.setAmbient(new float[] { 0.06f, 0.1f, 0.1f, 1.0f });
-        posLight.light.setDiffuse(new float[] { 0.6f, 1.0f, 1.0f, 1.0f });
-        posLight.light.setSpecular(new float[] { 1.0f, 1.0f, 1.0f, 1.0f });
-        posLight.light.setConstantAtt(1.0f);
-        posLight.light.setLinearAtt(0.1f);
-        posLight.light.setQuadraticAtt(0.1f);
-        posLight.light.setPosition(new Point3D(0, 0, 0));
+        posLights.add(new PosLight(gl,2048));
+        posLights.get(0).light.setAmbient(new float[] { 0.1f, 0.06f, 0.1f, 1.0f });
+        posLights.get(0).light.setDiffuse(new float[] { 1.0f, 0.6f, 1.0f, 1.0f });
+        posLights.get(0).light.setSpecular(new float[] { 1.0f, 1.0f, 1.0f, 1.0f });
+        posLights.get(0).light.setConstantAtt(1.0f);
+        posLights.get(0).light.setLinearAtt(0.1f);
+        posLights.get(0).light.setQuadraticAtt(0.1f);
+        posLights.get(0).light.setPosition(new Point3D(0, 0, 0));
 
         /*
         SpotLight s = new SpotLight();
@@ -270,7 +279,10 @@ public class Solar extends JFrame implements GLEventListener {
 
     private void passOne(GL4 gl) {
         gl.glUseProgram(rendering_programShadow);
-        posLight.genShadowMap(gl, rendering_programShadow, shapes);
+        PosLight.lightNum = 0;
+        for(int i = 0; i < posLights.size(); i++) {
+            posLights.get(i).genShadowMap(gl, rendering_programShadow, shapes);
+        }
         gl.glBindFramebuffer(GL_FRAMEBUFFER, 0);
         gl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
@@ -298,7 +310,7 @@ public class Solar extends JFrame implements GLEventListener {
 
         gl.glUseProgram(rendering_programBlinnMap);
         for(Shape shape: shapes) {
-            shape.displayShadow(gl, rendering_programBlinnMap, pMat, vMat, globalAmbient, posLight, true);
+            shape.displayShadow(gl, rendering_programBlinnMap, pMat, vMat, globalAmbient, posLights, true);
         }
     }
 
@@ -312,39 +324,39 @@ public class Solar extends JFrame implements GLEventListener {
         }
         if(listen.keyboard.up.isDown()) {
             //System.out.println("moving -z");
-            posLight.light.setPosition(new Point3D(posLight.light.getPosition().getX(), posLight.light.getPosition().getY(),
-                    posLight.light.getPosition().getZ() -  0.4f));
-            bulb.setPosition(posLight.light.getPosition());
+            posLights.get(0).light.setPosition(new Point3D(posLights.get(0).light.getPosition().getX(), posLights.get(0).light.getPosition().getY(),
+                    posLights.get(0).light.getPosition().getZ() -  0.4f));
+            bulb.setPosition(posLights.get(0).light.getPosition());
         }
         if(listen.keyboard.down.isDown()) {
             //System.out.println("moving +z");
-            posLight.light.setPosition(new Point3D(posLight.light.getPosition().getX(), posLight.light.getPosition().getY(),
-                    posLight.light.getPosition().getZ() + 0.4f));
-            bulb.setPosition(posLight.light.getPosition());
+            posLights.get(0).light.setPosition(new Point3D(posLights.get(0).light.getPosition().getX(), posLights.get(0).light.getPosition().getY(),
+                    posLights.get(0).light.getPosition().getZ() + 0.4f));
+            bulb.setPosition(posLights.get(0).light.getPosition());
         }
         if(listen.keyboard.left.isDown()) {
             //System.out.println("moving -x");
-            posLight.light.setPosition(new Point3D(posLight.light.getPosition().getX() - 0.4f, posLight.light.getPosition().getY(),
-                    posLight.light.getPosition().getZ()));
-            bulb.setPosition(posLight.light.getPosition());
+            posLights.get(0).light.setPosition(new Point3D(posLights.get(0).light.getPosition().getX() - 0.4f, posLights.get(0).light.getPosition().getY(),
+                    posLights.get(0).light.getPosition().getZ()));
+            bulb.setPosition(posLights.get(0).light.getPosition());
         }
         if(listen.keyboard.right.isDown()) {
             //System.out.println("moving +x");
-            posLight.light.setPosition(new Point3D(posLight.light.getPosition().getX() + 0.4f, posLight.light.getPosition().getY(),
-                    posLight.light.getPosition().getZ()));
-            bulb.setPosition(posLight.light.getPosition());
+            posLights.get(0).light.setPosition(new Point3D(posLights.get(0).light.getPosition().getX() + 0.4f, posLights.get(0).light.getPosition().getY(),
+                    posLights.get(0).light.getPosition().getZ()));
+            bulb.setPosition(posLights.get(0).light.getPosition());
         }
         if(listen.keyboard.rArrow.isDown()) {
             //System.out.println("moving -y");
-            posLight.light.setPosition(new Point3D(posLight.light.getPosition().getX(), posLight.light.getPosition().getY() - 0.4f,
-                    posLight.light.getPosition().getZ()));
-            bulb.setPosition(posLight.light.getPosition());
+            posLights.get(0).light.setPosition(new Point3D(posLights.get(0).light.getPosition().getX(), posLights.get(0).light.getPosition().getY() - 0.4f,
+                    posLights.get(0).light.getPosition().getZ()));
+            bulb.setPosition(posLights.get(0).light.getPosition());
         }
         if(listen.keyboard.lArrow.isDown()) {
             //System.out.println("moving +y");
-            posLight.light.setPosition(new Point3D(posLight.light.getPosition().getX() , posLight.light.getPosition().getY() + 0.4f,
-                    posLight.light.getPosition().getZ()));
-            bulb.setPosition(posLight.light.getPosition());
+            posLights.get(0).light.setPosition(new Point3D(posLights.get(0).light.getPosition().getX() , posLights.get(0).light.getPosition().getY() + 0.4f,
+                    posLights.get(0).light.getPosition().getZ()));
+            bulb.setPosition(posLights.get(0).light.getPosition());
         }
     }
 

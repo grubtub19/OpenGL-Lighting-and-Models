@@ -5,10 +5,12 @@ import com.sun.javafx.geom.transform.GeneralTransform3D;
 import graphicslib3D.Matrix3D;
 import graphicslib3D.Point3D;
 import graphicslib3D.Vector3D;
+import graphicslib3D.light.AmbientLight;
 import graphicslib3D.light.PositionalLight;
 import sun.java2d.loops.FillRect;
 
 import java.awt.geom.Point2D;
+import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 
@@ -17,68 +19,93 @@ import static com.jogamp.opengl.GL.GL_FRAMEBUFFER;
 import static com.jogamp.opengl.GL.GL_NONE;
 import static com.jogamp.opengl.GL2ES2.GL_DEPTH_COMPONENT;
 import static com.jogamp.opengl.GL2ES2.GL_TEXTURE_WRAP_R;
+import static com.jogamp.opengl.GL2ES3.GL_TEXTURE_CUBE_MAP_ARRAY;
 
 public class PosLight {
     public PositionalLight light;
-    private int shadowWidth;
-    private int shadowHeight;
     private int nearPlane;
     public int farPlane;
     private Matrix3D pMatrix;
     private ArrayList<Matrix3D> vMatrix;
-    private int depthFrameBuf;
-    public int depthCubemap;
+    //private int depthFrameBuf;
+    //public int depthCubemap;
+
+    private static int shadowWidth;
+    private static int shadowHeight;
+    public static int depth3DBuffer;
+    public static int depth3DMap;
+    public static int lightNum = 0;
+    private static boolean inited = false;
 
     public PosLight(GL4 gl, int mapResolution) {
+        if(!inited) {
+            PosLight.init(gl);
+            PosLight.shadowWidth = mapResolution;
+            PosLight.shadowHeight = mapResolution;
+            inited = true;
+        }
         light = new PositionalLight();
-        shadowWidth = mapResolution;
-        shadowHeight = mapResolution;
+
         nearPlane = 0;
         farPlane = 1000;
-        initBuffer(gl);
-        initCubeMap(gl);
-        bindCubeMap(gl);
-        setParams(gl);
-        bindBuffer(gl);
     }
 
-    public void initBuffer(GL4 gl) {
+    public static void init(GL4 gl) {
         int[] temp = new int[1];
         gl.glGenFramebuffers(1, temp,0);
-        depthFrameBuf = temp[0];
-    }
+        depth3DBuffer = temp[0];
 
-    public void initCubeMap(GL4 gl) {
-        int[] temp = new int[1];
         gl.glGenTextures(1, temp, 0);
-        depthCubemap = temp[0];
-    }
+        depth3DMap = temp[0];
 
-    private void bindCubeMap(GL4 gl) {
-        gl.glBindTexture(GL_TEXTURE_CUBE_MAP, depthCubemap);
+        gl.glBindTexture(GL_TEXTURE_CUBE_MAP_ARRAY, depth3DMap);
 
-        gl.glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X, 0, GL_DEPTH_COMPONENT, shadowWidth, shadowHeight, 0, GL_DEPTH_COMPONENT, GL_FLOAT, null);
-        gl.glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 0, GL_DEPTH_COMPONENT, shadowWidth, shadowHeight, 0, GL_DEPTH_COMPONENT, GL_FLOAT, null);
-        gl.glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 0, GL_DEPTH_COMPONENT, shadowWidth, shadowHeight, 0, GL_DEPTH_COMPONENT, GL_FLOAT, null);
-        gl.glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, 0, GL_DEPTH_COMPONENT, shadowWidth, shadowHeight, 0, GL_DEPTH_COMPONENT, GL_FLOAT, null);
-        gl.glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Z, 0, GL_DEPTH_COMPONENT, shadowWidth, shadowHeight, 0, GL_DEPTH_COMPONENT, GL_FLOAT, null);
-        gl.glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, 0, GL_DEPTH_COMPONENT, shadowWidth, shadowHeight, 0, GL_DEPTH_COMPONENT, GL_FLOAT, null);
-    }
+        gl.glTexImage3D(GL_TEXTURE_CUBE_MAP_ARRAY, 0, GL_DEPTH_COMPONENT, shadowWidth, shadowHeight, 24, 0, GL_DEPTH_COMPONENT, GL_FLOAT, null);
 
-    private void setParams(GL4 gl) {
-        gl.glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        gl.glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        gl.glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-        gl.glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-        gl.glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-    }
+        for(int i = 0; i < 4; i++) {
+            for(int f = 0; f < 6; f++) {
+                gl.glTexSubImage3D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + f, 0, 0, 0, (i * 6) + f, shadowWidth, shadowHeight, 1, GL_DEPTH_COMPONENT, GL_FLOAT, null);
+            }
+        }
 
-    private void bindBuffer(GL4 gl) {
-        gl.glBindFramebuffer(GL_FRAMEBUFFER, depthFrameBuf);
-        gl.glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, depthCubemap, 0);
+        gl.glTexParameteri(GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        gl.glTexParameteri(GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        gl.glTexParameteri(GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        gl.glTexParameteri(GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        gl.glTexParameteri(GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+        gl.glBindFramebuffer(GL_FRAMEBUFFER, depth3DBuffer);
+        gl.glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, depth3DMap, 0);
+
         gl.glDrawBuffer(GL_NONE);
         gl.glReadBuffer(GL_NONE);
         gl.glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    }
+
+    public void addUniforms(GL4 gl, int rendering_program, int i, boolean shadows) {
+        int light_amb_loc = gl.glGetUniformLocation(rendering_program, "lights[" + i + "].ambient");
+        int light_diff_loc = gl.glGetUniformLocation(rendering_program, "lights[" + i + "].diffuse");
+        int light_spec_loc = gl.glGetUniformLocation(rendering_program, "lights[" + i + "].specular");
+        int light_constant_loc = gl.glGetUniformLocation(rendering_program, "lights[" + i + "].constantAtt");
+        int light_linear_loc = gl.glGetUniformLocation(rendering_program, "lights[" + i + "].linearAtt");
+        int light_quad_loc = gl.glGetUniformLocation(rendering_program, "lights[" + i + "].quadAtt");
+        int light_pos_loc = gl.glGetUniformLocation(rendering_program, "lights[" + i + "].position");
+
+        gl.glUniform4fv(light_amb_loc, 1, light.getAmbient(), 0);
+        gl.glUniform4fv(light_diff_loc, 1, light.getDiffuse(), 0);
+        gl.glUniform4fv(light_spec_loc, 1, light.getSpecular(), 0);
+        gl.glUniform1f(light_constant_loc, light.getConstantAtt());
+        gl.glUniform1f(light_linear_loc, light.getLinearAtt());
+        gl.glUniform1f(light_quad_loc, light.getQuadraticAtt());
+        float[] lightPosFloats = new float[] { (float) light.getPosition().getX(), (float) light.getPosition().getY(), (float) light.getPosition().getZ() };
+        gl.glUniform3fv(light_pos_loc, 1, lightPosFloats, 0);
+
+        if(shadows) {
+            int light_far_loc = gl.glGetUniformLocation(rendering_program, "lights[" + i + "].far_plane");
+            gl.glUniform1f(light_far_loc, (float) farPlane);
+            gl.glActiveTexture(GL_TEXTURE1);
+            gl.glBindTexture(GL_TEXTURE_CUBE_MAP, depth3DMap);
+        }
     }
 
     public void genShadowMap(GL4 gl, int rendering_program, ArrayList<Shape> shapes) {
@@ -117,13 +144,16 @@ public class PosLight {
         vMatrix.add(zNegative);
 
         gl.glViewport(0, 0, shadowWidth, shadowHeight);
-        gl.glBindFramebuffer(GL_FRAMEBUFFER, depthFrameBuf);
+        gl.glBindFramebuffer(GL_FRAMEBUFFER, depth3DMap);
         gl.glClear(GL_DEPTH_BUFFER_BIT);
-
+        int temp;
         for(int i = 0; i < 6; i++) {
-            int temp = gl.glGetUniformLocation(rendering_program, "viewMatrices[" + i + "]");
+            temp = gl.glGetUniformLocation(rendering_program, "viewMatrices[" + i + "]");
             gl.glUniformMatrix4fv(temp, 1, false, vMatrix.get(i).getFloatValues(), 0);
         }
+        temp = gl.glGetUniformLocation(rendering_program, "lightNum");
+        gl.glUniform1i(temp, PosLight.lightNum);
+        PosLight.lightNum++;
 
         int lightPos_loc = gl.glGetUniformLocation(rendering_program, "lightPos");
         int far_loc = gl.glGetUniformLocation(rendering_program, "far_plane");
