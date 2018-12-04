@@ -81,6 +81,34 @@ public class PosLight {
         gl.glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }
 
+    public void addUniforms(GL4 gl, int rendering_program, boolean shadows) {
+
+        int light_amb_loc = gl.glGetUniformLocation(rendering_program, "light.ambient");
+        int light_diff_loc = gl.glGetUniformLocation(rendering_program, "light.diffuse");
+        int light_spec_loc = gl.glGetUniformLocation(rendering_program, "light.specular");
+        int light_constant_loc = gl.glGetUniformLocation(rendering_program, "light.constantAtt");
+        int light_linear_loc = gl.glGetUniformLocation(rendering_program, "light.linearAtt");
+        int light_quad_loc = gl.glGetUniformLocation(rendering_program, "light.quadAtt");
+        int light_pos_loc = gl.glGetUniformLocation(rendering_program, "light.position");
+
+        gl.glUniform4fv(light_amb_loc, 1, light.getAmbient(), 0);
+        gl.glUniform4fv(light_diff_loc, 1, light.getDiffuse(), 0);
+        gl.glUniform4fv(light_spec_loc, 1, light.getSpecular(), 0);
+        gl.glUniform1f(light_constant_loc, light.getConstantAtt());
+        gl.glUniform1f(light_linear_loc, light.getLinearAtt());
+        gl.glUniform1f(light_quad_loc, light.getQuadraticAtt());
+        float[] lightPosFloats = new float[] { (float) light.getPosition().getX(), (float) light.getPosition().getY(), (float) light.getPosition().getZ() };
+        gl.glUniform3fv(light_pos_loc, 1, lightPosFloats, 0);
+
+
+        if(shadows) {
+            int light_far_loc = gl.glGetUniformLocation(rendering_program, "far_plane");
+            gl.glUniform1f(light_far_loc, (float) farPlane);
+            gl.glActiveTexture(GL_TEXTURE1);
+            gl.glBindTexture(GL_TEXTURE_CUBE_MAP, depthCubemap);
+        }
+    }
+
     public void genShadowMap(GL4 gl, int rendering_program, ArrayList<Shape> shapes) {
         pMatrix = Solar.perspective(90f, ((float)shadowWidth)/((float)shadowHeight), nearPlane, farPlane);
 

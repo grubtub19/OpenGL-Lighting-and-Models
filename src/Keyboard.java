@@ -1,39 +1,25 @@
 import java.lang.reflect.Field;
 
 public class Keyboard {
-    public State w;
-    public State a;
-    public State s;
-    public State d;
-    public State q;
-    public State e;
-    public State down;
-    public State left;
-    public State right;
-    public State up;
-    public State shift;
-    public State space;
-    public State esc;
-    public State lArrow;
-    public State rArrow;
+    public State w = new State();
+    public State a = new State();
+    public State s = new State();
+    public State d = new State();
+    public State q = new State();
+    public State e = new State();
+    public State down = new State();
+    public State left = new State();
+    public State right = new State();
+    public State up = new State();
+    public State shift = new State();
+    public State space = new State();
+    public State esc = new State();
+    public State lArrow = new State();
+    public State rArrow = new State();
+    public State ctrl = new State();
+    public State f11 = new State();
 
-    public Keyboard() {
-        w = new State();
-        a = new State();
-        s = new State();
-        d = new State();
-        q = new State();
-        e = new State();
-        down = new State();
-        left = new State();
-        right = new State();
-        up = new State();
-        shift = new State();
-        space = new State();
-        esc = new State();
-        lArrow = new State();
-        rArrow = new State();
-    }
+    public Keyboard() {}
 
     public void update() {
         w.update();
@@ -51,5 +37,7 @@ public class Keyboard {
         esc.update();
         lArrow.update();
         rArrow.update();
+        ctrl.update();
+        f11.update();
     }
 }

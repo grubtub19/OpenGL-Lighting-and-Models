@@ -8,8 +8,8 @@ public class Camera {
     Vector3D forward = new Vector3D(0,0,-1);
     float yaw = 90, pitch = 0;
     boolean needCalc = true;
-    float moveSensitivity = 0.01f;
-    float rotateSensitivity = 0.003f;
+    float moveSensitivity = 0.002f;
+    float rotateSensitivity = 0.03f;
     float speedUpVal = 4;
 
     public Camera(float x, float y, float z) {
@@ -103,8 +103,8 @@ public class Camera {
         move(up);
     }
 
-    public void yaw(float time, float amount) {
-        yaw -= rotateSensitivity * time * amount;
+    public void yaw(float amount) {
+        yaw -= rotateSensitivity * amount;
         needCalc = true;
     }
 
@@ -118,14 +118,16 @@ public class Camera {
         needCalc = true;
     }
 
-    public void pitch(float time, float amount) {
-        pitch += rotateSensitivity * time * amount;
+    public void pitch(float amount) {
+        pitch += rotateSensitivity * amount;
         needCalc = true;
     }
 
     public void moveCamera(MyListener listener, float time) {
         if(listener.keyboard.shift.isDown()) {
             speedUpVal = 4;
+        } else if(listener.keyboard.ctrl.isDown()) {
+            speedUpVal = 0.2f;
         } else {
             speedUpVal = 1;
         }
@@ -148,8 +150,8 @@ public class Camera {
             strafeDown(time);
         }
 
-        yaw(time, listener.mouse.x);
+        yaw(listener.mouse.x);
 
-        pitch(time, -(listener.mouse.y));
+        pitch(-(listener.mouse.y));
     }
 }

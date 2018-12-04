@@ -6,7 +6,6 @@ public class Mouse {
     public float y;
     //public float xPast;
     //public float yPast;
-    public boolean firstFrame = true;
     Robot robot;
 
     public Mouse() throws AWTException {
@@ -24,12 +23,6 @@ public class Mouse {
         if(!window.isFocused()) {
             x = 0;
             y = 0;
-            firstFrame = true;
-        } else if (firstFrame) {
-            x = 0;
-            y = 0;
-            firstFrame = false;
-            robot.mouseMove(point.x + root.x + window.getWidth() / 2 , point.y + root.y + window.getHeight() / 2);
         } else {
             robot.mouseMove(point.x + root.x + window.getWidth() / 2 , point.y + root.y + window.getHeight() / 2);
         }

@@ -16,6 +16,9 @@ struct PositionalLight
     vec4 ambient;
     vec4 diffuse;
     vec4 specular;
+    float constantAtt;
+    float linearAtt;
+    float quadAtt;
     vec3 position;
 };
 

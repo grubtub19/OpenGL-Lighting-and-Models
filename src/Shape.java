@@ -33,6 +33,7 @@ public class Shape {
             new float[] { 0.5f, 0.5f, 0.5f, 1.0f },
             new float[] { 1.0f, 1.0f, 1.0f, 1.0f },
            30.0f);
+    public static String defaultTexture = "Models/white.jpg";
     private int material_amb_loc;
     private int material_diff_loc;
     private int material_spec_loc;
@@ -168,37 +169,13 @@ public class Shape {
      * are made relative to the view matrix.
      * @param gl
      * @param rendering_program
-     * @param vMat
      * @param ambient
      * @param posLight
      */
-    private void addLight(GL4 gl, int rendering_program, Matrix3D vMat, AmbientLight ambient, PosLight posLight, boolean shadows) {
+    private void addLight(GL4 gl, int rendering_program, AmbientLight ambient, PosLight posLight, boolean shadows) {
         int globalAmbient_loc = gl.glGetUniformLocation(rendering_program, "globalAmbient");
-        int light_amb_loc = gl.glGetUniformLocation(rendering_program, "light.ambient");
-        int light_diff_loc = gl.glGetUniformLocation(rendering_program, "light.diffuse");
-        int light_spec_loc = gl.glGetUniformLocation(rendering_program, "light.specular");
-        //int light_constant_loc = gl.glGetUniformLocation(rendering_program, "light.constantAtt");
-        //int light_linear_loc = gl.glGetUniformLocation(rendering_program, "light.linearAtt");
-        //int light_quad_loc = gl.glGetUniformLocation(rendering_program, "light.quadAtt");
-        int light_pos_loc = gl.glGetUniformLocation(rendering_program, "light.position");
-
         gl.glUniform4fv(globalAmbient_loc, 1, ambient.getValues(), 0);
-        gl.glUniform4fv(light_amb_loc, 1, posLight.light.getAmbient(), 0);
-        gl.glUniform4fv(light_diff_loc, 1, posLight.light.getDiffuse(), 0);
-        gl.glUniform4fv(light_spec_loc, 1, posLight.light.getSpecular(), 0);
-        //gl.glUniform1f(light_constant_loc, posLight.light.getConstantAtt());
-        //gl.glUniform1f(light_linear_loc, posLight.light.getLinearAtt());
-        //gl.glUniform1f(light_quad_loc, posLight.light.getQuadraticAtt());
-        float[] lightPosFloats = new float[] { (float) posLight.light.getPosition().getX(), (float) posLight.light.getPosition().getY(), (float) posLight.light.getPosition().getZ() };
-        gl.glUniform3fv(light_pos_loc, 1, lightPosFloats, 0);
-
-
-        if(shadows) {
-            int light_far_loc = gl.glGetUniformLocation(rendering_program, "far_plane");
-            gl.glUniform1f(light_far_loc, ((float)posLight.farPlane));
-            gl.glActiveTexture(GL_TEXTURE1);
-            gl.glBindTexture(GL_TEXTURE_CUBE_MAP, posLight.depthCubemap);
-        }
+        posLight.addUniforms(gl, rendering_program, shadows);
     }
 
     /**
@@ -255,7 +232,7 @@ public class Shape {
         update();
         glSettings(gl);
         addMatrices(gl, rendering_program, pMat, vMat);
-        addLight(gl, rendering_program, vMat, globalAmbient, light, true);
+        addLight(gl, rendering_program, globalAmbient, light, true);
         drawVBOs(gl, rendering_program, useMaterials);
         mMat.setToIdentity();
     }
@@ -274,7 +251,7 @@ public class Shape {
                         PosLight light, boolean useMaterials) {
         update();
         addMatrices(gl, rendering_program, pMat, vMat);
-        addLight(gl, rendering_program, vMat, globalAmbient, light, false);
+        addLight(gl, rendering_program, globalAmbient, light, false);
         glSettings(gl);
         drawVBOs(gl, rendering_program, useMaterials);
         mMat.setToIdentity();

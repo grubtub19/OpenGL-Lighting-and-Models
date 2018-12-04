@@ -1,3 +1,5 @@
+import javafx.scene.input.KeyCode;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -74,6 +76,14 @@ public class MyListener implements KeyListener {
                 break;
             case 46:
                 keyboard.rArrow.nextIsDown = true;
+                break;
+            case 17:
+                keyboard.ctrl.nextIsDown = true;
+                break;
+            case KeyEvent.VK_F11:
+                keyboard.f11.nextIsDown = true;
+                System.out.println("F11 Pressed");
+                break;
         }
     }
 
@@ -125,6 +135,13 @@ public class MyListener implements KeyListener {
                 break;
             case 46:
                 keyboard.rArrow.nextIsDown = false;
+                break;
+            case 17:
+                keyboard.ctrl.nextIsDown = false;
+                break;
+            case KeyEvent.VK_F11:
+                keyboard.f11.nextIsDown = false;
+                break;
         }
     }
 }

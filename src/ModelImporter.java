@@ -68,17 +68,22 @@ public class ModelImporter {
             //System.out.println("Using default texture");
             groups.get(0).texture = texture;
         }
+
         for (ModelGroup group : groups) {
             //System.out.println("Current Group Material: " + group.materialName);
             //System.out.println("Vert num: " + group.getNumVertices());
             for (MaterialTexture materialTexture : materialTextures) {
-                //System.out.println("    comparing against: " + materialTexture.getName());
+                System.out.println("    comparing against: " + materialTexture.getName());
                 if (group.materialName.equals(materialTexture.getName())) {
 
                     group.material = materialTexture.material;
-                    group.texture = materialTexture.texture;
-                    //System.out.println("        group: " + group.groupName + " get material: " + materialTexture.material.getName());
-                    //System.out.println("        group: " + group.groupName + " has texture: " + group.texture);
+                    if(materialTexture.texture == null) {
+                        group.texture = Shape.defaultTexture;
+                    } else {
+                        group.texture = materialTexture.texture;
+                    }
+                    System.out.println("        group: " + group.groupName + " get material: " + materialTexture.material.getName());
+                    System.out.println("        group: " + group.groupName + " has texture: " + group.texture);
                 }
             }
         }
@@ -158,7 +163,7 @@ public class ModelImporter {
                 //System.out.println();
             } else if (line.startsWith("vt"))            // texture coordinates ("vt" case)
             {
-                //System.out.print("vt");
+                //out.print("vt");
                 for (String s : (line.substring(3)).trim().split(" ")) {   //for each preceding number (expected: 2)
                     //System.out.print(" " + s);
                     allTextureCoords.add(Float.valueOf(s));                //append it to the list of texture coordinates
@@ -200,7 +205,11 @@ public class ModelImporter {
                     String vn = split[2];   // whole normal vector location
 
                     int vertRef = (Integer.valueOf(v) - 1) * 3;  //vertex array location
-                    int tcRef = (Integer.valueOf(vt) - 1) * 2;   //texture array location
+                    if(vt.length() > 0) {
+                        int tcRef = (Integer.valueOf(vt) - 1) * 2;   //texture array location
+                        groups.get(groups.size() - 1).textureCoords.add(allTextureCoords.get(tcRef));       //add the single texture
+                        groups.get(groups.size() - 1).textureCoords.add(allTextureCoords.get(tcRef + 1));   //coordinate to the array
+                    }
                     int normRef = (Integer.valueOf(vn) - 1) * 3; //normal array location
 
 
@@ -209,8 +218,7 @@ public class ModelImporter {
                     groups.get(groups.size() - 1).triangleVerts.add(allVertices.get((vertRef) + 2));    //for the triangle faces
                     //System.out.println("Coordinates: " + allVertices.get(vertRef) + ", " + allVertices.get((vertRef) + 1) + ", " + allVertices.get((vertRef) + 2));
 
-                    groups.get(groups.size() - 1).textureCoords.add(allTextureCoords.get(tcRef));       //add the single texture
-                    groups.get(groups.size() - 1).textureCoords.add(allTextureCoords.get(tcRef + 1));   //coordinate to the array
+
                                                                                                         //of coordinates for the triangle faces
                     //System.out.println("TexCoords: " + allTextureCoords.get(tcRef) + ", " + allTextureCoords.get(tcRef + 1));
 

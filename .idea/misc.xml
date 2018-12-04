@@ -4,14 +4,17 @@
     <file url="file://$PROJECT_DIR$/Models/Eggman/eggman.obj" />
     <file url="file://$PROJECT_DIR$/Models/Ellie/Ellie.obj" />
     <file url="file://$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.obj" />
-    <file url="file://$PROJECT_DIR$/Models/Eva Unit 03/Unit 03.obj" />
+    <file url="file://$PROJECT_DIR$/Models/Light Desk/light_desk.obj" />
     <file url="file://$PROJECT_DIR$/Models/Miku/miku.obj" />
     <file url="file://$PROJECT_DIR$/Models/Miku/Type 2020 Miku.obj" />
     <file url="file://$PROJECT_DIR$/Models/Peter/peter.obj" />
-    <file url="file://$PROJECT_DIR$/Models/Shrek/CHARACTER_Shrek.obj" />
     <file url="file://$PROJECT_DIR$/Models/Shuttle/shuttle.obj" />
+    <file url="file://$PROJECT_DIR$/Models/Slenderman/SM Model.obj" />
+    <file url="file://$PROJECT_DIR$/Models/Splatoon/total.obj" />
     <file url="file://$PROJECT_DIR$/Models/Tibbers/Tibbers Super Galaxy.obj" />
     <file url="file://$PROJECT_DIR$/Models/Tsurara/Tsurara.obj" />
+    <file url="file://$PROJECT_DIR$/Models/Witch/textured.obj" />
+    <file url="file://$PROJECT_DIR$/Models/Zenyatta/Zenyatta.obj" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

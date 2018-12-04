@@ -9,15 +9,14 @@ in vec2 tc;
 
 out vec4 fragColor;
 
-
 struct PositionalLight
 {
     vec4 ambient;
     vec4 diffuse;
     vec4 specular;
-    //float constantAtt;
-   // float linearAtt;
-    //float quadAtt;
+    float constantAtt;
+    float linearAtt;
+    float quadAtt;
     vec3 position;
 };
 
@@ -41,10 +40,10 @@ uniform mat4 proj_matrix;
 layout (binding=0) uniform sampler2D texSample;
 layout (binding=1) uniform samplerCube depthMap;
 
-float ShadowCalculation(float cosTheta)
+float ShadowCalculation(float cosTheta, vec3 fragToLight)
 {
     // get vector between fragment position and light position
-    vec3 fragToLight = modelVertPos - light.position;
+
     // use the light to fragment vector to sample from the depth map
 
     //float closestDepth = texture(depthMap, fragToLight).r;
@@ -54,9 +53,9 @@ float ShadowCalculation(float cosTheta)
     float currentDepth = length(fragToLight);
     // now test for shadows
     float shadow = 0.0;
-    float bias = 1.0 - (cosTheta / 2.0);
+    float bias = 0.1 - 0.1 * (cosTheta / 2.0);
     float samples = 4.0;
-    float offset = 0.1;
+    float offset = 0.01;
     //vec2 texelSize = 1.0 / textureSize(depthMap, 0);
     for(float x = -offset; x < offset; x += offset / (samples * 0.5)) {
         for(float y = -offset; y < offset; y += offset / (samples * 0.5)) {
@@ -69,6 +68,7 @@ float ShadowCalculation(float cosTheta)
             }
         }
     }
+
     //shadow = currentDepth -  bias > closestDepth ? 1.0 : 0.0;
     shadow /= (samples * samples * samples);
     return shadow;
@@ -76,8 +76,9 @@ float ShadowCalculation(float cosTheta)
 
 void main(void)
 {
-    vec4 texColor = texture(texSample, tc);
-    if(texColor.a < 0.8) {
+    vec4 texColor;
+    texColor = texture(texSample, tc);
+    if(texColor.a < 0.0) {
         discard;
     }
     vec3 L = normalize(varyingLightDir);
@@ -87,11 +88,15 @@ void main(void)
 
     float cosTheta = dot(L,N);
     float cosPhi = dot(normalize(varyingHalfVector),R);
+    vec3 fragToLight = modelVertPos - light.position;
+    float distance = length(fragToLight);
 
+    float att = 1 / (light.constantAtt + light.linearAtt * distance + light.quadAtt * distance * distance);
     vec3 ambient = ((globalAmbient * material.ambient) + (light.ambient * material.ambient)).xyz;
     vec3 diffuse = light.diffuse.xyz * material.diffuse.xyz * max(cosTheta,0.0);
     vec3 specular = light.specular.xyz * material.specular.xyz * pow(max(cosPhi,0.0), material.shininess*3);
-    float shadow = ShadowCalculation(cosTheta);
-    fragColor = texColor * vec4((ambient + (1.0 - shadow) * (diffuse + specular)), texColor.a);
+    float shadow = ShadowCalculation(cosTheta, fragToLight);
+    fragColor = texColor * vec4((ambient + (1.0 - shadow) * (diffuse + specular) * clamp(att, 0.0, 1.0)), texColor.a);
+
     //fragColor = texColor * vec4((ambient + (diffuse + specular)), 1.0);
 }
