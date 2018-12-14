@@ -4,6 +4,8 @@
 
 This is the final project for my Graphics class. It uses OpenGL (using JOGL) to create a 3D environment with Models imported from .obj files that are lit using the Blinn-Phong shading model. I also implemented omnidirectional shadow mapping.
 
+The camera is controlled with mouse and keyboard (wasdqe). The lamp can be moved too (up, down, left, right, <, >).
+
 Many of the models are custom posed in Blender. A select few have their texture maps edited with my professors face.
 
 # Report
