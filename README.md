@@ -1,20 +1,27 @@
 # OpenGL Lighting and Models
 
-# Description
+A graphics engine written in Java using OpenGL (JOGL) featuring omni-direction shadow-mapping
 
-This is the final project for my Graphics class. It uses OpenGL (using JOGL) to create a 3D environment with Models imported from .obj files that are lit using the Blinn-Phong shading model. I also implemented omnidirectional shadow mapping.
+## ScreenShots
 
-The camera is controlled with mouse and keyboard (wasdqe). The lamp can be moved too (up, down, left, right, <, >).
+<img src="https://imgur.com/Z3SRmAU.png" width="600px">
 
-Many of the models are custom posed in Blender. A select few have their texture maps edited with my professors face.
+<img src="https://imgur.com/Kg0s2sb.png" width="600px">
 
-# Report
+<img src="https://imgur.com/y3ejf2Z.png" width="600px">
+
+<img src="https://imgur.com/1nLVLC1.png" width="600px">
+
+## Features
+
+* Omni-directional shadow mapping
+* Blinn-Phong shading
+* .Obj model importer
+* Camera control (w a s d q e)
+* Light-source controls (↑ ↓ → ← < >)
+* Example Enviroment
+  * Custom-posed and texture-editted models via Blender
+
+# Implementation Details/Report
 
 https://docs.google.com/document/d/1AC5D7APWriEWPo40qfj_p9NgsNoT1PNLEb7fUpaK_to/edit?usp=sharing
-
-# Screenshots
-
-![alt text](https://imgur.com/Z3SRmAU.png)
-![alt text](https://imgur.com/Kg0s2sb.png)
-![alt text](https://imgur.com/y3ejf2Z.png)
-![alt text](https://imgur.com/1nLVLC1.png)
